@@ -1,0 +1,76 @@
+#-----------------------------------------------------------
+# Vivado v2018.3 (64-bit)
+# SW Build 2405991 on Thu Dec  6 23:36:41 MST 2018
+# IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
+# Start of session at: Thu Sep  3 20:33:44 2026
+# Process ID: 22894
+# Current directory: /home/bienso/Videos/22_ov7725_lcd_test/22_ov7725_lcd/ov7725_lcd
+# Command line: vivado ov7725_lcd.xpr
+# Log file: /home/bienso/Videos/22_ov7725_lcd_test/22_ov7725_lcd/ov7725_lcd/vivado.log
+# Journal file: /home/bienso/Videos/22_ov7725_lcd_test/22_ov7725_lcd/ov7725_lcd/vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project ov7725_lcd.xpr
+update_compile_order -fileset sources_1
+open_bd_design [get_files */zynq.bd]
+current_bd_design zynq
+assign_bd_address \
+-target_address_space [get_bd_addr_spaces axi_vdma_roi_0/Data_MM2S] \
+[get_bd_addr_segs processing_system7_0/S_AXI_HP0/HP0_DDR_LOWOCM]
+assign_bd_address \
+-target_address_space [get_bd_addr_spaces axi_vdma_roi_0/Data_S2MM] \
+[get_bd_addr_segs processing_system7_0/S_AXI_HP0/HP0_DDR_LOWOCM]
+get_bd_addr_segs -of_objects \
+[get_bd_addr_spaces axi_vdma_roi_0/Data_MM2S]
+get_bd_addr_segs -of_objects \
+[get_bd_addr_spaces axi_vdma_roi_0/Data_S2MM]
+validate_bd_design
+save_bd_design
+reset_target all [get_files */zynq.bd]
+generate_target all [get_files */zynq.bd]
+export_ip_user_files \
+-of_objects [get_files */zynq.bd] \
+-no_script -sync -force -quiet
+update_compile_order -fileset sources_1
+get_ips *v_tc*
+report_ip_status
+reset_run synth_1
+get_runs *v_tc*
+reset_run zynq_v_tc_0_0_synth_1
+launch_runs synth_1 -jobs 4
+get_ips *v_tc*
+get_property IPDEF [get_ips zynq_v_tc_0_0]
+report_ip_status
+reset_target all [get_ips zynq_v_tc_0_0]
+reset_target all [get_files */zynq.bd]
+set bd [get_files */zynq.bd]
+puts $bd
+reset_target all $bd
+generate_target all $bd
+export_ip_user_files \
+-of_objects $bd \
+-no_script -sync -force -quiet
+update_compile_order -fileset sources_1
+get_files -all *zynq_v_tc_0_0*
+get_files -all *zynq_v_tc_0_0.vhd
+validate_bd_design
+save_bd_design
+reset_run zynq_v_tc_0_0_synth_1
+launch_runs zynq_v_tc_0_0_synth_1 -jobs 4
+get_runs *v_tc*
+delete_runs [get_runs zynq_v_tc_0_0_synth_1]
+get_runs *v_tc*
+set bd [get_files */zynq.bd]
+reset_target all $bd
+generate_target all $bd
+export_ip_user_files \
+-of_objects $bd \
+-no_script -sync -force -quiet
+update_compile_order -fileset sources_1
+get_files -all *v_tc_0_0*
+get_files -all *v_tc_0_0.vhd
+get_files -all *v_tc_0_0.v
+get_files -all *v_tc_0_0.v
+create_ip_run $bd
+get_runs *v_tc*
+launch_runs zynq_v_tc_0_0_synth_1 -jobs 4

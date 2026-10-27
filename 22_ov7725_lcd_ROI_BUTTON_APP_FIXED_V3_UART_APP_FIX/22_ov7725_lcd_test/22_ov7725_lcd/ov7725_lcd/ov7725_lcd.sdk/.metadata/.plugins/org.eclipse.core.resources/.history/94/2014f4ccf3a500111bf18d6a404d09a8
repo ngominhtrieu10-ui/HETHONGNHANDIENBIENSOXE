@@ -1,0 +1,167 @@
+/**
+  ******************************************************************************
+  * @file    breath_led.c
+  * @author  fire
+  * @version V1.0
+  * @date    2021-xx-xx
+  * @brief   ov7725_lcd
+  ******************************************************************************
+  */
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+#include "xil_types.h"
+#include "xil_cache.h"
+#include "xil_io.h"
+#include "xparameters.h"
+
+#include "xaxivdma.h"
+#include "xaxivdma_i.h"
+
+#include "display_ctrl/display_ctrl.h"
+#include "ov7725/ov7725_init.h"
+#include "vdma_api/vdma_api.h"
+#include "sccb/sccb_init.h"
+
+#define FB_Num   3
+
+#define CLOCK_ADDR      XPAR_AXI_DYNCLK_0_BASEADDR
+#define VDMA_DEVICE_ID  XPAR_AXIVDMA_0_DEVICE_ID
+#define XVTC_DEVICE_ID  XPAR_VTC_0_DEVICE_ID
+
+/* =========================
+ * HLS IP BASE ADDRESS
+ * ========================= */
+#define GAUSSIAN_BASE_ADDR   0x43C40000
+#define OTSU_BASE_ADDR       0x43C50000
+#define MORPH_BASE_ADDR      0x43C60000
+
+/* =========================
+ * HLS REGISTER OFFSET
+ * ========================= */
+#define HLS_CTRL_REG         0x00
+#define HLS_ROWS_REG         0x10
+#define HLS_COLS_REG         0x18
+
+/* ap_start = bit 0
+ * auto_restart = bit 7
+ * 0x81 = auto_restart + ap_start
+ */
+#define HLS_START_AUTO       0x81
+
+XAxiVdma     Vdma;
+DisplayCtrl  Dispctrl;
+VideoMode    VIDEO_Mode;
+
+/* frame buffer DDR */
+unsigned int const FB_Base =
+        (XPAR_PS7_DDR_0_S_AXI_BASEADDR + 0x1000000);
+
+
+/* =========================================================
+ * Initialize one HLS IP
+ * ========================================================= */
+void HLS_Init(u32 BaseAddr, u32 rows, u32 cols)
+{
+    /* Set image size */
+    Xil_Out32(BaseAddr + HLS_ROWS_REG, rows);
+    Xil_Out32(BaseAddr + HLS_COLS_REG, cols);
+
+    /* Start + Auto Restart */
+    Xil_Out32(BaseAddr + HLS_CTRL_REG, HLS_START_AUTO);
+}
+
+
+/* =========================================================
+ * Initialize image processing pipeline
+ *
+ * Stream direction:
+ *
+ * Gaussian -> Otsu -> Morph
+ *
+ * Start downstream first:
+ *
+ * Morph -> Otsu -> Gaussian
+ * ========================================================= */
+void ImageProcessing_Init(u32 rows, u32 cols)
+{
+    /* 1. Morphological Open */
+    HLS_Init(MORPH_BASE_ADDR, rows, cols);
+
+    /* 2. Otsu Threshold */
+    HLS_Init(OTSU_BASE_ADDR, rows, cols);
+
+    /* 3. Gaussian Blur */
+    HLS_Init(GAUSSIAN_BASE_ADDR, rows, cols);
+}
+
+
+int main(void)
+{
+    /* Select LCD resolution */
+    VIDEO_Mode = VMODE_800x480;
+
+    /*
+     * Initialize HLS image processing IP
+     *
+     * rows = 480
+     * cols = 800
+     */
+    ImageProcessing_Init(
+            VIDEO_Mode.height,
+            VIDEO_Mode.width
+    );
+
+    /* Initialize SCCB */
+    SCCB_Init();
+
+    /* Initialize OV7725 */
+    OV7725_Init();
+
+    /* Enable VDMA read/write */
+    run_vdma_frame_buffer(
+            &Vdma,
+            VDMA_DEVICE_ID,
+            VIDEO_Mode.width,
+            VIDEO_Mode.height,
+            FB_Base,
+            0,
+            0,
+            BOTH
+    );
+
+    /* Clear LCD frame buffer */
+    memset(
+            (unsigned int *)FB_Base,
+            0,
+            VIDEO_Mode.height *
+            VIDEO_Mode.width *
+            FB_Num *
+            3
+    );
+
+    Xil_DCacheFlush();
+
+    /* Initialize LCD output */
+    DisplayInitialize(
+            &Dispctrl,
+            XVTC_DEVICE_ID,
+            CLOCK_ADDR
+    );
+
+    DisplaySetMode(
+            &Dispctrl,
+            &VIDEO_Mode
+    );
+
+    DisplayStart(&Dispctrl);
+
+    while(1)
+    {
+        /* Video pipeline runs in hardware */
+    }
+
+    return 0;
+}

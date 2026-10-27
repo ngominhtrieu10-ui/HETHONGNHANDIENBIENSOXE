@@ -1,0 +1,178 @@
+#-----------------------------------------------------------
+# Vivado v2018.3 (64-bit)
+# SW Build 2405991 on Thu Dec  6 23:36:41 MST 2018
+# IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
+# Start of session at: Fri Sep  4 17:38:17 2026
+# Process ID: 5940
+# Current directory: /home/bienso/Videos/22_ov7725_lcd_test/22_ov7725_lcd/ov7725_lcd
+# Command line: vivado ov7725_lcd.xpr
+# Log file: /home/bienso/Videos/22_ov7725_lcd_test/22_ov7725_lcd/ov7725_lcd/vivado.log
+# Journal file: /home/bienso/Videos/22_ov7725_lcd_test/22_ov7725_lcd/ov7725_lcd/vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project ov7725_lcd.xpr
+update_compile_order -fileset sources_1
+puts "LC_ALL=$::env(LC_ALL)"
+puts "LANG=$::env(LANG)"
+puts "LC_NUMERIC=$::env(LC_NUMERIC)"
+puts [exec locale]
+open_bd_design [get_files */zynq.bd]
+current_bd_design zynq
+get_bd_cells v_tc_0
+set projdir [get_property DIRECTORY [current_project]]
+set ipdir [file normalize "$projdir/ov7725_lcd.srcs/sources_1/bd/zynq/ip"]
+glob -nocomplain "$ipdir/zynq_v_tc_0_0*"
+get_runs *v_tc*
+puts "LC_ALL=$::env(LC_ALL)"
+LC_ALL=C
+delete_runs [get_runs zynq_v_tc_0_0_impl_1]
+delete_runs [get_runs zynq_v_tc_0_0_synth_1]
+get_runs *v_tc*
+close_bd_design [current_bd_design]
+close_bd_design [current_bd_design]
+current_bd_design
+close_bd_design
+set ipdir [file normalize "$projdir/ov7725_lcd.srcs/sources_1/bd/zynq/ip"]
+file delete -force "$ipdir/zynq_v_tc_0_0"
+file delete -force "$ipdir/zynq_v_tc_0_0_1"
+glob -nocomplain "$ipdir/zynq_v_tc_0_0*"
+set bd [get_files */zynq.bd]
+puts $bd
+reset_target all $bd
+generate_target all $bd
+export_ip_user_files \
+-of_objects $bd \
+-no_script -sync -force -quiet
+update_compile_order -fileset sources_1
+glob -nocomplain "$ipdir/zynq_v_tc_0_0*"
+delete_bd_objs [get_bd_cells v_tc_0]
+delete_bd_objs [get_bd_cells v_tc_0]
+get_bd_cells v_tc_0
+open_bd_design [get_files */zynq.bd]
+current_bd_design zynq
+get_bd_cells v_tc_0
+delete_bd_objs [get_bd_cells v_tc_0]
+save_bd_design
+if {[llength [get_runs -quiet zynq_v_tc_0_0_synth_1]]} {
+    delete_runs [get_runs zynq_v_tc_0_0_synth_1]
+}
+get_runs *v_tc*
+set projdir [get_property DIRECTORY [current_project]]
+set oldvhd [file normalize "$projdir/ov7725_lcd.srcs/sources_1/bd/zynq/ip/zynq_v_tc_0_0/synth/zynq_v_tc_0_0.vhd"]
+set f [get_files -quiet -all $oldvhd]
+if {[llength $f]} {
+    remove_files $f
+}
+set oldxdc [file normalize "$projdir/ov7725_lcd.srcs/sources_1/bd/zynq/ip/zynq_v_tc_0_0/zynq_v_tc_0_0_ooc.xdc"]
+set f [get_files -quiet -all $oldxdc]
+if {[llength $f]} {
+    remove_files $f
+}
+set ipdir [file normalize "$projdir/ov7725_lcd.srcs/sources_1/bd/zynq/ip"]
+if {[file exists "$ipdir/zynq_v_tc_0_0"]} {
+    file delete -force "$ipdir/zynq_v_tc_0_0"
+}
+if {[file exists "$ipdir/zynq_v_tc_0_0_1"]} {
+    file delete -force "$ipdir/zynq_v_tc_0_0_1"
+}
+glob -nocomplain "$ipdir/zynq_v_tc_0_0*"
+create_bd_cell -type ip \
+-vlnv xilinx.com:ip:v_tc:6.1 \
+v_tc_0
+set_property -dict [list \
+CONFIG.enable_detection {false} \
+CONFIG.enable_generation {true} \
+] [get_bd_cells v_tc_0]
+connect_bd_intf_net \
+[get_bd_intf_pins ps7_0_axi_periph/M01_AXI] \
+[get_bd_intf_pins v_tc_0/ctrl]
+connect_bd_intf_net \
+[get_bd_intf_pins v_tc_0/vtiming_out] \
+[get_bd_intf_pins v_axi4s_vid_out_0/vtiming_in]
+connect_bd_net \
+[get_bd_pins axi_dynclk_0/PXL_CLK_O] \
+[get_bd_pins v_tc_0/clk]
+connect_bd_net \
+[get_bd_pins processing_system7_0/FCLK_CLK0] \
+[get_bd_pins v_tc_0/s_axi_aclk]
+connect_bd_net \
+[get_bd_pins rst_ps7_0_100M/peripheral_aresetn] \
+[get_bd_pins v_tc_0/s_axi_aresetn]
+connect_bd_net \
+[get_bd_pins v_axi4s_vid_out_0/vtg_ce] \
+[get_bd_pins v_tc_0/gen_clken]
+assign_bd_address \
+-offset 0x43C00000 \
+-range 64K \
+[get_bd_addr_segs v_tc_0/ctrl/Reg]
+get_property OFFSET [get_bd_addr_segs v_tc_0/ctrl/Reg]
+validate_bd_design
+save_bd_design
+reset_target all [get_files */zynq.bd]
+generate_target all [get_files */zynq.bd]
+glob -nocomplain "$ipdir/zynq_v_tc_0_0*"
+file exists "$ipdir/zynq_v_tc_0_0/synth/zynq_v_tc_0_0.vhd"
+set xml "$ipdir/zynq_v_tc_0_0/zynq_v_tc_0_0.xml"
+set fp [open $xml r]
+get_ips *v_tc*
+get_files -all *v_tc*
+get_files -all *v_tc*.xci
+get_files -all *v_tc*.vhd
+set srcroot [file normalize "$projdir/ov7725_lcd.srcs/sources_1/bd/zynq"]
+glob -nocomplain -directory $srcroot -types f -tails *
+puts [exec find $srcroot -iname "*v_tc*" -print]
+set vf [lindex [get_files -all *zynq_v_tc_0_0.vhd] 0]
+puts $vf
+set fp [open $vf r]
+get_ips *v_tc*
+get_files -all *v_tc*.xci
+get_files -all *v_tc*.vhd
+puts [exec find $srcroot -iname "*v_tc*" -print]
+if {[llength [get_runs -quiet zynq_v_tc_0_0_impl_1]]} {
+    delete_runs [get_runs zynq_v_tc_0_0_impl_1]
+}
+if {[llength [get_runs -quiet zynq_v_tc_0_0_synth_1]]} {
+    delete_runs [get_runs zynq_v_tc_0_0_synth_1]
+}
+get_runs *v_tc*
+set oldxci [get_files -quiet -all *zynq_v_tc_0_0.xci]
+puts $oldxci
+if {[llength $oldxci]} {
+    remove_files $oldxci
+}
+get_files -all *v_tc*.xci
+set newvhd [lindex [get_files -all *zynq_v_tc_0_1.vhd] 0]
+puts $newvhd
+file exists $newvhd
+set fp [open $newvhd r]
+set txt [read $fp]
+close $fp
+regexp -nocase {entity[[:space:]]+zynq_v_tc_0_1[[:space:]]+is} $txt
+set bd [get_files */zynq.bd]
+create_ip_run $bd
+get_runs *v_tc*
+close_project
+open_project /home/bienso/Videos/22_ov7725_lcd_test/22_ov7725_lcd/ov7725_lcd/ov7725_lcd.xpr
+get_ips *v_tc*
+update_compile_order -fileset sources_1
+get_files -all *v_tc*.xci
+get_runs *v_tc*
+if {[llength [get_runs -quiet zynq_v_tc_0_0_impl_1]]} {
+    delete_runs [get_runs zynq_v_tc_0_0_impl_1]
+}
+if {[llength [get_runs -quiet zynq_v_tc_0_0_synth_1]]} {
+    delete_runs [get_runs zynq_v_tc_0_0_synth_1]
+}
+get_runs *v_tc*
+reset_run zynq_v_tc_0_1_synth_1
+launch_runs zynq_v_tc_0_1_synth_1 -jobs 4
+wait_on_run zynq_v_tc_0_1_synth_1
+get_property STATUS [get_runs zynq_v_tc_0_1_synth_1]
+reset_run synth_1
+launch_runs synth_1 -jobs 4
+wait_on_run synth_1
+launch_runs impl_1 -jobs 8
+wait_on_run impl_1
+open_run impl_1
+launch_runs impl_1 -to_step write_bitstream -jobs 8
+wait_on_run impl_1

@@ -1,0 +1,100 @@
+{
+   "ExpandedHierarchyInLayout":"",
+   "guistr":"# # String gsaved with Nlview 6.8.11  2018-08-07 bk=1.4403 VDI=40 GEI=35 GUI=JA:9.0 TLS
+#  -string -flagsOSRD
+preplace port cam_pwdn_0 -pg 1 -y 740 -defaultsOSRD
+preplace port DDR -pg 1 -y 570 -defaultsOSRD
+preplace port ov7725_href -pg 1 -y 950 -defaultsOSRD
+preplace port lcd_pclk_0 -pg 1 -y 830 -defaultsOSRD
+preplace port ov7725_pclk -pg 1 -y 930 -defaultsOSRD
+preplace port lcd_hs_0 -pg 1 -y 870 -defaultsOSRD
+preplace port cam_sccb -pg 1 -y 550 -defaultsOSRD
+preplace port lcd_bl_0 -pg 1 -y 930 -defaultsOSRD
+preplace port lcd_de_0 -pg 1 -y 910 -defaultsOSRD
+preplace port cam_rst_n -pg 1 -y 720 -defaultsOSRD
+preplace port ov7725_vsync -pg 1 -y 970 -defaultsOSRD
+preplace port FIXED_IO -pg 1 -y 590 -defaultsOSRD
+preplace port lcd_vs_0 -pg 1 -y 890 -defaultsOSRD
+preplace port cam_xclk_0 -pg 1 -y 760 -defaultsOSRD
+preplace portBus rgb_tft_0 -pg 1 -y 950 -defaultsOSRD
+preplace portBus ov7725_data -pg 1 -y 990 -defaultsOSRD
+preplace inst v_axi4s_vid_out_0 -pg 1 -lvl 4 -y 1030 -defaultsOSRD
+preplace inst tft_lcd_0 -pg 1 -lvl 5 -y 890 -defaultsOSRD
+preplace inst v_tc_0 -pg 1 -lvl 1 -y -70 -defaultsOSRD
+preplace inst axi_vdma_0 -pg 1 -lvl 3 -y 430 -defaultsOSRD
+preplace inst axis_8to24_0 -pg 1 -lvl 5 -y 280 -defaultsOSRD
+preplace inst axis_24to8_0 -pg 1 -lvl 1 -y 350 -defaultsOSRD
+preplace inst axi_smc -pg 1 -lvl 4 -y 590 -defaultsOSRD
+preplace inst morphological_open_0 -pg 1 -lvl 5 -y -90 -defaultsOSRD
+preplace inst ov7725_data_0 -pg 1 -lvl 3 -y 960 -defaultsOSRD
+preplace inst otsu_threshold_0 -pg 1 -lvl 1 -y 190 -defaultsOSRD
+preplace inst gaussian_blur_3x3_0 -pg 1 -lvl 3 -y 630 -defaultsOSRD
+preplace inst axi_dynclk_0 -pg 1 -lvl 3 -y 230 -defaultsOSRD
+preplace inst v_vid_in_axi4s_0 -pg 1 -lvl 2 -y 620 -defaultsOSRD
+preplace inst ps7_0_axi_periph -pg 1 -lvl 2 -y 200 -defaultsOSRD
+preplace inst axi_vdma_roi_0 -pg 1 -lvl 4 -y 270 -defaultsOSRD
+preplace inst rst_ps7_0_100M -pg 1 -lvl 1 -y 510 -defaultsOSRD
+preplace inst processing_system7_0 -pg 1 -lvl 5 -y 600 -defaultsOSRD
+preplace netloc morphological_open_0_dst 1 4 2 1870 -180 2340
+preplace netloc ps7_0_axi_periph_M02_AXI 1 2 3 840 130 NJ 130 1820J
+preplace netloc axis_8to24_0_m_axis 1 3 3 1410 140 NJ 140 2340
+preplace netloc processing_system7_0_DDR 1 5 1 NJ
+preplace netloc v_axi4s_vid_out_0_vid_data 1 4 1 1820
+preplace netloc tft_lcd_0_lcd_hs 1 5 1 NJ
+preplace netloc axi_vdma_roi_0_M_AXIS_MM2S 1 0 5 -10 70 360J -120 NJ -120 NJ -120 1810
+preplace netloc v_vid_in_axi4s_0_video_out 1 2 1 890
+preplace netloc ov7725_data_0_tft_de 1 1 3 430 1110 NJ 1110 1270
+preplace netloc tft_lcd_0_lcd_vs 1 5 1 NJ
+preplace netloc tft_lcd_0_rgb_tft 1 5 1 NJ
+preplace netloc axi_dynclk_0_PXL_CLK_O 1 0 5 -50 -220 N -220 N -220 1340 870 1800J
+preplace netloc axis_24to8_0_m_axis 1 1 2 400J -90 800
+preplace netloc v_axi4s_vid_out_0_vid_hsync 1 4 1 1860
+preplace netloc processing_system7_0_M_AXI_GP0 1 1 5 410 -190 NJ -190 NJ -190 NJ -190 2350
+preplace netloc axi_vdma_0_M_AXI_MM2S 1 3 1 1360
+preplace netloc ov7725_data_0_cam_pwdn 1 3 3 1360J 740 NJ 740 NJ
+preplace netloc ov7725_href_0_1 1 0 3 NJ 950 NJ 950 NJ
+preplace netloc axi_dynclk_0_LOCKED_O 1 2 3 890 1090 1310 860 1810
+preplace netloc rst_ps7_0_100M_peripheral_aresetn 1 0 5 -30 100 420 850 860 110 1390 110 1850J
+preplace netloc axi_vdma_roi_0_M_AXI_S2MM 1 3 2 1410 410 1790
+preplace netloc axi_smc_M00_AXI 1 4 1 N
+preplace netloc ps7_0_axi_periph_M07_AXI 1 2 3 830J -110 NJ -110 1850
+preplace netloc axi_vdma_0_M_AXIS_MM2S 1 3 1 1320
+preplace netloc ov7725_data_0_tft_clk 1 1 3 460 800 NJ 800 1280
+preplace netloc processing_system7_0_FCLK_RESET0_N 1 0 6 0 820 NJ 820 NJ 820 NJ 820 1790J 720 2340
+preplace netloc ps7_0_axi_periph_M03_AXI 1 2 1 840
+preplace netloc ov7725_pclk_0_1 1 0 3 NJ 930 NJ 930 NJ
+preplace netloc ov7725_data_0_vsync 1 1 3 450 1100 NJ 1100 1280
+preplace netloc v_axi4s_vid_out_0_vid_active_video 1 4 1 1830
+preplace netloc tft_lcd_0_lcd_de 1 5 1 NJ
+preplace netloc tft_lcd_0_lcd_bl 1 5 1 NJ
+preplace netloc gaussian_blur_3x3_0_dst 1 0 4 -20 780 N 780 N 780 1290
+preplace netloc ps7_0_axi_periph_M01_AXI 1 0 3 0 -210 N -210 780
+preplace netloc cam_xclk 1 3 3 1390J 750 NJ 750 2340J
+preplace netloc ov7725_data_0_1 1 0 3 NJ 990 NJ 990 NJ
+preplace netloc ov7725_data_0_tft_data 1 1 3 440 810 NJ 810 1290
+preplace netloc v_axi4s_vid_out_0_vtg_ce 1 0 5 -50 830 N 830 N 830 N 830 1790
+preplace netloc processing_system7_0_FIXED_IO 1 5 1 NJ
+preplace netloc ps7_0_axi_periph_M06_AXI 1 0 3 0 90 390J -80 770
+preplace netloc ps7_0_axi_periph_M08_AXI 1 2 2 870 140 1380J
+preplace netloc tft_lcd_0_lcd_pclk 1 5 1 NJ
+preplace netloc ov7725_data_0_tft_ce 1 1 3 470 790 NJ 790 1300
+preplace netloc ps7_0_axi_periph_M05_AXI 1 2 1 790
+preplace netloc otsu_threshold_0_dst 1 1 4 380 -100 810 -90 N -90 1850
+preplace netloc ps7_0_axi_periph_M04_AXI 1 2 1 780
+preplace netloc processing_system7_0_GPIO_0 1 5 1 NJ
+preplace netloc processing_system7_0_FCLK_CLK0 1 0 6 -40 80 410 840 880 120 1370 120 1840 490 2340
+preplace netloc axi_vdma_0_M_AXI_S2MM 1 3 1 1330
+preplace netloc v_tc_0_vtiming_out 1 1 3 370 -110 820 -100 1350
+preplace netloc ps7_0_axi_periph_M00_AXI 1 2 1 850
+preplace netloc axi_vdma_roi_0_M_AXI_MM2S 1 3 2 1400 400 1800
+preplace netloc v_axi4s_vid_out_0_vid_vsync 1 4 1 1870
+preplace netloc ov7725_data_0_cam_rst_n 1 3 3 1330J 730 NJ 730 2350J
+preplace netloc ov7725_vsync_0_1 1 0 3 NJ 970 NJ 970 NJ
+levelinfo -pg 1 -70 180 620 1080 1600 2120 2410 -top -230 -bot 1200
+"
+}
+{
+   "da_axi4_cnt":"7",
+   "da_clkrst_cnt":"2",
+   "da_ps7_cnt":"1"
+}

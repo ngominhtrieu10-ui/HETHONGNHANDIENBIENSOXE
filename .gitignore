@@ -1,0 +1,8 @@
+.metadata/
+.Xil/
+*.log
+*.jou
+Debug/
+Release/
+bin/
+obj/

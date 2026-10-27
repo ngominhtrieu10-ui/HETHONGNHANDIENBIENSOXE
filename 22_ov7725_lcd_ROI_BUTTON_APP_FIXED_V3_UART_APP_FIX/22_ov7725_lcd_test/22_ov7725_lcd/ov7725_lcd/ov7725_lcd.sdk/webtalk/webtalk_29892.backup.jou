@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Webtalk v2018.3 (64-bit)
+# SW Build 2405991 on Thu Dec  6 23:38:27 MST 2018
+# 
+# Start of session at: Mon Jul  1 13:55:07 2024
+# Process ID: 29892
+# Current directory: D:/zynq_ps/7020/22_ov7725_lcd/ov7725_lcd/ov7725_lcd.sdk/webtalk
+# Command line: wbtcv.exe -mode batch -source sdk_webtalk.tcl
+# Log file: D:/zynq_ps/7020/22_ov7725_lcd/ov7725_lcd/ov7725_lcd.sdk/webtalk/webtalk.log
+# Journal file: D:/zynq_ps/7020/22_ov7725_lcd/ov7725_lcd/ov7725_lcd.sdk/webtalk\webtalk.jou
+#-----------------------------------------------------------
+source sdk_webtalk.tcl

@@ -1,0 +1,100 @@
+Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2018.3 (lin64) Build 2405991 Thu Dec  6 23:36:41 MST 2018
+| Date         : Sat Sep 19 14:15:17 2026
+| Host         : bienso running 64-bit Ubuntu 18.04.6 LTS
+| Command      : upgrade_ip
+| Device       : xc7z020clg400-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'zynq_otsu_threshold_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of zynq_otsu_threshold_0_0 (xilinx.com:hls:otsu_threshold:1.0) from (Rev. 2114739455) to (Rev. 2114792639)
+
+
+
+
+
+
+Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2018.3 (lin64) Build 2405991 Thu Dec  6 23:36:41 MST 2018
+| Date         : Sat Sep 19 14:15:17 2026
+| Host         : bienso running 64-bit Ubuntu 18.04.6 LTS
+| Command      : upgrade_ip
+| Device       : xc7z020clg400-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'zynq_morphological_open_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of zynq_morphological_open_0_0 (xilinx.com:hls:morphological_open:1.0) from (Rev. 2114739456) to (Rev. 2114792635)
+
+
+
+
+
+
+Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2018.3 (lin64) Build 2405991 Thu Dec  6 23:36:41 MST 2018
+| Date         : Sat Sep 19 14:15:17 2026
+| Host         : bienso running 64-bit Ubuntu 18.04.6 LTS
+| Command      : upgrade_ip
+| Device       : xc7z020clg400-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'zynq_gaussian_blur_3x3_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of zynq_gaussian_blur_3x3_0_0 (xilinx.com:hls:gaussian_blur_3x3:1.0) from (Rev. 2114739454) to (Rev. 2114792629)
+
+
+
+
+
+
+Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2018.3 (lin64) Build 2405991 Thu Dec  6 23:36:41 MST 2018
+| Date         : Sat Sep 19 14:15:16 2026
+| Host         : bienso running 64-bit Ubuntu 18.04.6 LTS
+| Command      : upgrade_ip
+| Device       : xc7z020clg400-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'gaussian_blur_3x3_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of gaussian_blur_3x3_0 (xilinx.com:hls:gaussian_blur_3x3:1.0) from (Rev. 2114739454) to (Rev. 2114792629)
+
+
+
+
+
+
+Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2018.3 (lin64) Build 2405991 Thu Dec  6 23:36:41 MST 2018
+| Date         : Tue Sep  1 13:02:43 2026
+| Host         : bienso running 64-bit Ubuntu 18.04.6 LTS
+| Command      : upgrade_ip
+| Device       : xc7z020clg400-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'zynq_ov7725_data_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the conversion of zynq_ov7725_data_0_0 (xilinx.com:user:ov7725_data:1.0 (Rev. 16)) to Vivado generation flows.
+

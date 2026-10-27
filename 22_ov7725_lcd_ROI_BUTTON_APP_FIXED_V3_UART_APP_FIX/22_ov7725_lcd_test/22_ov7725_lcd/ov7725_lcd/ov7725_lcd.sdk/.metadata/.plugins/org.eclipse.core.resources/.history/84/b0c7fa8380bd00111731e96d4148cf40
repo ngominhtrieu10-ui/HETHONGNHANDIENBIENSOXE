@@ -1,0 +1,112 @@
+
+
+
+    return best;
+}
+
+/* Refine E/F using the lower horizontal stroke.
+ * Input and training samples: foreground=1, background=0.
+ */
+static void refine_ef(const u8 glyph[PLATE_CHAR_PIXELS],
+                      char *value, u32 *raw_distance)
+{
+    u32 best_score = 0xffffffffU;
+    u32 best_raw = *raw_distance;
+    char preferred = *value;
+    char selected = preferred;
+    u32 i;
+    int dx, dy, x, y;
+
+    if (preferred != 'E' && preferred != 'F')
+        return;
+
+    for (i = 0; i < PLATE_TRAINING_COUNT; ++i) {
+        char label = (char)plate_training_labels[i];
+        if (label != 'E' && label != 'F') continue;
+
+        for (dy = -1; dy <= 1; ++dy) {
+            for (dx = -1; dx <= 1; ++dx) {
+                u32 score = 0;
+                u32 raw = 0;
+                for (y = 0; y < PLATE_CHAR_H; ++y) {
+                    for (x = 0; x < PLATE_CHAR_W; ++x) {
+                        int sx = x + dx;
+                        int sy = y + dy;
+                        u8 reference = 0;
+                        if (sx >= 0 && sx < PLATE_CHAR_W &&
+                            sy >= 0 && sy < PLATE_CHAR_H) {
+                            reference = plate_training_pixels[i]
+                                [sy * PLATE_CHAR_W + sx];
+                        }
+                        if (glyph[y * PLATE_CHAR_W + x] != reference) {
+                            u32 weight = 1U;
+                            /* Give the lower-right stroke extra weight. */
+                            if (y >= (PLATE_CHAR_H * 2) / 3 &&
+                                x >= PLATE_CHAR_W / 3)
+                                weight = 3U;
+                            score += weight;
+                            raw++;
+                        }
+                    }
+                }
+                /* Preserve the original label when weighted scores tie. */
+                if (score < best_score ||
+                    (score == best_score && label == preferred &&
+                     selected != preferred)) {
+                    best_score = score;
+                    best_raw = raw;
+                    selected = label;
+                }
+            }
+        }
+    }
+    if (best_score != 0xffffffffU) {
+        *value = selected;
+        *raw_distance = best_raw;
+    }
+}
+
+PlateOcrResult plate_ocr_recognize_mode(const u8 glyph[PLATE_CHAR_PIXELS], int mode)
+{
+    u32 best_dist[3] = {0xffffffffU, 0xffffffffU, 0xffffffffU};
+    u8 best_label[3] = {'?', '?', '?'};
+    u32 i, k;
+    PlateOcrResult out;
+
+    for (i = 0; i < PLATE_TRAINING_COUNT; ++i) {
+        u32 d;
+        if (!label_allowed(plate_training_labels[i], mode)) continue;
+        d = shifted_distance(glyph, plate_training_pixels[i]);
+        for (k = 0; k < 3; ++k) {
+            if (d < best_dist[k]) {
+                u32 j;
+                for (j = 2; j > k; --j) {
+                    best_dist[j] = best_dist[j - 1];
+                    best_label[j] = best_label[j - 1];
+                }
+                best_dist[k] = d;
+                best_label[k] = plate_training_labels[i];
+                break;
+            }
+        }
+    }
+
+    out.value = best_label[0];
+    if (best_label[0] == best_label[1] || best_label[0] == best_label[2])
+        out.value = best_label[0];
+    else if (best_label[1] == best_label[2])
+        out.value = best_label[1];
+
+    out.distance = best_dist[0];
+    refine_ef(glyph, &out.value, &out.distance);
+    out.confidence = (out.distance >= PLATE_CHAR_PIXELS) ? 0U :
+        ((PLATE_CHAR_PIXELS - out.distance) * 100U / PLATE_CHAR_PIXELS);
+    if (out.confidence < 48U) out.value = '?';
+    return out;
+}
+
+PlateOcrResult plate_ocr_recognize(const u8 glyph[PLATE_CHAR_PIXELS])
+{
+    return plate_ocr_recognize_mode(glyph, PLATE_OCR_ANY);
+}
+

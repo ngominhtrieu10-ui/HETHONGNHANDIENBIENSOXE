@@ -1,0 +1,18 @@
+#ifndef PLATE_OCR_H
+#define PLATE_OCR_H
+
+#include "xil_types.h"
+
+#define PLATE_CHAR_W 20
+#define PLATE_CHAR_H 30
+#define PLATE_CHAR_PIXELS (PLATE_CHAR_W * PLATE_CHAR_H)
+
+typedef struct {
+    char value;
+    u32 distance;
+    u32 confidence;
+} PlateOcrResult;
+
+PlateOcrResult plate_ocr_recognize(const u8 glyph[PLATE_CHAR_PIXELS]);
+
+#endif

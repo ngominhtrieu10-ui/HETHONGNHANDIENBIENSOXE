@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<Runs Version="1" Minor="0">
+	<Run Id="zynq_axis_24to8_0_1_synth_1" LaunchDir="/home/bienso/Videos/22_ov7725_lcd/ov7725_lcd/ov7725_lcd.runs/zynq_axis_24to8_0_1_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+	<Run Id="zynq_axis_8to24_0_0_synth_1" LaunchDir="/home/bienso/Videos/22_ov7725_lcd/ov7725_lcd/ov7725_lcd.runs/zynq_axis_8to24_0_0_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+	<Run Id="zynq_gaussian_blur_3x3_0_0_synth_1" LaunchDir="/home/bienso/Videos/22_ov7725_lcd/ov7725_lcd/ov7725_lcd.runs/zynq_gaussian_blur_3x3_0_0_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+	<Run Id="zynq_xbar_0_synth_1" LaunchDir="/home/bienso/Videos/22_ov7725_lcd/ov7725_lcd/ov7725_lcd.runs/zynq_xbar_0_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+	<Run Id="zynq_v_vid_in_axi4s_0_0_synth_1" LaunchDir="/home/bienso/Videos/22_ov7725_lcd/ov7725_lcd/ov7725_lcd.runs/zynq_v_vid_in_axi4s_0_0_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+	<Run Id="zynq_ov7725_data_0_0_synth_1" LaunchDir="/home/bienso/Videos/22_ov7725_lcd/ov7725_lcd/ov7725_lcd.runs/zynq_ov7725_data_0_0_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+	<Run Id="zynq_rst_ps7_0_100M_0_synth_1" LaunchDir="/home/bienso/Videos/22_ov7725_lcd/ov7725_lcd/ov7725_lcd.runs/zynq_rst_ps7_0_100M_0_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+	<Run Id="zynq_axi_smc_0_synth_1" LaunchDir="/home/bienso/Videos/22_ov7725_lcd/ov7725_lcd/ov7725_lcd.runs/zynq_axi_smc_0_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+	<Run Id="zynq_axi_dynclk_0_0_synth_1" LaunchDir="/home/bienso/Videos/22_ov7725_lcd/ov7725_lcd/ov7725_lcd.runs/zynq_axi_dynclk_0_0_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+	<Run Id="zynq_tft_lcd_0_0_synth_1" LaunchDir="/home/bienso/Videos/22_ov7725_lcd/ov7725_lcd/ov7725_lcd.runs/zynq_tft_lcd_0_0_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+	<Run Id="zynq_otsu_threshold_0_0_synth_1" LaunchDir="/home/bienso/Videos/22_ov7725_lcd/ov7725_lcd/ov7725_lcd.runs/zynq_otsu_threshold_0_0_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+	<Run Id="zynq_morphological_open_0_0_synth_1" LaunchDir="/home/bienso/Videos/22_ov7725_lcd/ov7725_lcd/ov7725_lcd.runs/zynq_morphological_open_0_0_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+	<Run Id="zynq_v_tc_0_0_synth_1" LaunchDir="/home/bienso/Videos/22_ov7725_lcd/ov7725_lcd/ov7725_lcd.runs/zynq_v_tc_0_0_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+	<Run Id="zynq_processing_system7_0_0_synth_1" LaunchDir="/home/bienso/Videos/22_ov7725_lcd/ov7725_lcd/ov7725_lcd.runs/zynq_processing_system7_0_0_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+	<Run Id="zynq_axi_vdma_0_0_synth_1" LaunchDir="/home/bienso/Videos/22_ov7725_lcd/ov7725_lcd/ov7725_lcd.runs/zynq_axi_vdma_0_0_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+	<Run Id="zynq_v_axi4s_vid_out_0_0_synth_1" LaunchDir="/home/bienso/Videos/22_ov7725_lcd/ov7725_lcd/ov7725_lcd.runs/zynq_v_axi4s_vid_out_0_0_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+	<Run Id="zynq_auto_pc_0_synth_1" LaunchDir="/home/bienso/Videos/22_ov7725_lcd/ov7725_lcd/ov7725_lcd.runs/zynq_auto_pc_0_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+	<Run Id="synth_1" LaunchDir="/home/bienso/Videos/22_ov7725_lcd/ov7725_lcd/ov7725_lcd.runs/synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado">
+		<Parent Id="zynq_axis_24to8_0_1_synth_1"/>
+		<Parent Id="zynq_axis_8to24_0_0_synth_1"/>
+		<Parent Id="zynq_gaussian_blur_3x3_0_0_synth_1"/>
+		<Parent Id="zynq_xbar_0_synth_1"/>
+		<Parent Id="zynq_v_vid_in_axi4s_0_0_synth_1"/>
+		<Parent Id="zynq_ov7725_data_0_0_synth_1"/>
+		<Parent Id="zynq_rst_ps7_0_100M_0_synth_1"/>
+		<Parent Id="zynq_axi_smc_0_synth_1"/>
+		<Parent Id="zynq_axi_dynclk_0_0_synth_1"/>
+		<Parent Id="zynq_tft_lcd_0_0_synth_1"/>
+		<Parent Id="zynq_otsu_threshold_0_0_synth_1"/>
+		<Parent Id="zynq_morphological_open_0_0_synth_1"/>
+		<Parent Id="zynq_v_tc_0_0_synth_1"/>
+		<Parent Id="zynq_processing_system7_0_0_synth_1"/>
+		<Parent Id="zynq_axi_vdma_0_0_synth_1"/>
+		<Parent Id="zynq_v_axi4s_vid_out_0_0_synth_1"/>
+		<Parent Id="zynq_auto_pc_0_synth_1"/>
+	</Run>
+	<Parameters>
+		<Parameter Name="runs.monitorLSFJobs" Val="true" Type="bool"/>
+	</Parameters>
+</Runs>
+

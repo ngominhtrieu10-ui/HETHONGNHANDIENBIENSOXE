@@ -1,0 +1,258 @@
+#include <string.h>
+#include <stdlib.h>
+#include <stdio.h>
+#include "plate_recognition.h"
+#include "plate_ocr.h"
+
+#define NPIX (PLATE_ROI_W * PLATE_ROI_H)
+#define MAX_COMPONENTS 48
+
+static u8 bw[NPIX];
+static u8 seen[NPIX];
+static u16 queue[NPIX];
+
+static int cmp_x(const void *a, const void *b)
+{
+    const PlateCharacter *aa = (const PlateCharacter *)a;
+    const PlateCharacter *bb = (const PlateCharacter *)b;
+    if (aa->line != bb->line) return aa->line - bb->line;
+    return aa->x - bb->x;
+}
+
+static int cmp_quality(const void *a, const void *b)
+{
+    const PlateCharacter *aa = (const PlateCharacter *)a;
+    const PlateCharacter *bb = (const PlateCharacter *)b;
+    if (aa->h != bb->h) return bb->h - aa->h;
+    return bb->area - aa->area;
+}
+
+static void make_binary(const u8 *rgb, u32 stride, int *fg_percent)
+{
+    u32 hist[256];
+    u32 total = NPIX, sum = 0, sum_b = 0, weight_b = 0;
+    u64 best_variance = 0;
+    int x, y, bright = 0, threshold = 127, t;
+    memset(hist, 0, sizeof(hist));
+    for (y = 0; y < PLATE_ROI_H; ++y) {
+        for (x = 0; x < PLATE_ROI_W; ++x) {
+            const u8 *p = rgb + y * stride + x * 3;
+            int v = ((int)p[0] + p[1] + p[2]) / 3;
+            hist[v]++;
+        }
+    }
+    /* Otsu threshold follows real OV7725 exposure instead of assuming 127. */
+    for (t = 0; t < 256; ++t) sum += (u32)t * hist[t];
+    for (t = 0; t < 256; ++t) {
+        u32 weight_f, mean_b, mean_f, diff;
+        u64 variance;
+        weight_b += hist[t];
+        if (weight_b == 0) continue;
+        weight_f = total - weight_b;
+        if (weight_f == 0) break;
+        sum_b += (u32)t * hist[t];
+        mean_b = sum_b / weight_b;
+        mean_f = (sum - sum_b) / weight_f;
+        diff = mean_b > mean_f ? mean_b - mean_f : mean_f - mean_b;
+        /* Scaled form avoids 64-bit floating point on Cortex-A9. */
+        variance = (u64)weight_b * (u64)weight_f * (u64)diff * (u64)diff;
+        if (variance > best_variance) { best_variance = variance; threshold = t; }
+    }
+    for (y = 0; y < PLATE_ROI_H; ++y) for (x = 0; x < PLATE_ROI_W; ++x) {
+        const u8 *p = rgb + y * stride + x * 3;
+        int v = ((int)p[0] + p[1] + p[2]) / 3;
+        if (v > threshold) bright++;
+    }
+    /* Characters must be foreground=1. Select the minority polarity so the
+       code works with either THRESH_BINARY or THRESH_BINARY_INV HLS output. */
+    for (y = 0; y < PLATE_ROI_H; ++y) {
+        for (x = 0; x < PLATE_ROI_W; ++x) {
+            const u8 *p = rgb + y * stride + x * 3;
+            int v = ((int)p[0] + p[1] + p[2]) / 3;
+            int white = v > threshold;
+            bw[y * PLATE_ROI_W + x] = (bright <= NPIX / 2) ? white : !white;
+        }
+    }
+    /* Never let a plate edge or guide-line join all characters together. */
+    for (x = 0; x < PLATE_ROI_W; ++x) {
+        bw[x] = bw[PLATE_ROI_W + x] = 0;
+        bw[(PLATE_ROI_H-1)*PLATE_ROI_W+x] = 0;
+        bw[(PLATE_ROI_H-2)*PLATE_ROI_W+x] = 0;
+    }
+    for (y = 0; y < PLATE_ROI_H; ++y) {
+        bw[y*PLATE_ROI_W] = bw[y*PLATE_ROI_W+1] = 0;
+        bw[y*PLATE_ROI_W+PLATE_ROI_W-1] = 0;
+        bw[y*PLATE_ROI_W+PLATE_ROI_W-2] = 0;
+    }
+    *fg_percent = ((bright <= NPIX / 2 ? bright : NPIX - bright) * 100) / NPIX;
+}
+
+static int find_components(PlateCharacter *out, int max_out)
+{
+    int x, y, count = 0;
+    memset(seen, 0, sizeof(seen));
+    for (y = 1; y < PLATE_ROI_H - 1; ++y) for (x = 1; x < PLATE_ROI_W - 1; ++x) {
+        int start = y * PLATE_ROI_W + x;
+        int head = 0, tail = 0, minx, maxx, miny, maxy, area = 0;
+        if (!bw[start] || seen[start]) continue;
+        seen[start] = 1; queue[tail++] = (u16)start;
+        minx = maxx = x; miny = maxy = y;
+        while (head < tail) {
+            int q = queue[head++], qx = q % PLATE_ROI_W, qy = q / PLATE_ROI_W;
+            int dx, dy; area++;
+            if (qx < minx) minx = qx;
+            if (qx > maxx) maxx = qx;
+            if (qy < miny) miny = qy;
+            if (qy > maxy) maxy = qy;
+            for (dy = -1; dy <= 1; ++dy) for (dx = -1; dx <= 1; ++dx) {
+                int nx = qx + dx, ny = qy + dy, ni;
+                if ((dx == 0 && dy == 0) || nx < 0 || nx >= PLATE_ROI_W || ny < 0 || ny >= PLATE_ROI_H) continue;
+                ni = ny * PLATE_ROI_W + nx;
+                if (bw[ni] && !seen[ni]) { seen[ni] = 1; queue[tail++] = (u16)ni; }
+            }
+        }
+        {
+            int w = maxx - minx + 1, h = maxy - miny + 1;
+            /* Deliberately permissive: retain narrow/split characters. */
+            if (h >= 18 && h <= 112 &&
+                w >= 2 && w <= 58 &&
+                area >= 35 &&
+                w * 100 <= h * 95 &&
+                count < max_out &&
+                minx > 2 && miny > 2 &&
+                maxx < PLATE_ROI_W - 3 &&
+                maxy < PLATE_ROI_H - 3) {
+                out[count].x=minx; out[count].y=miny; out[count].w=w;
+                out[count].h=h; out[count].area=area; out[count].line=0;
+                out[count].value='?'; out[count].confidence=0; count++;
+            }
+        }
+    }
+    return count;
+}
+static int filter_character_sizes(PlateCharacter *c, int n)
+{
+    int heights[MAX_COMPONENTS];
+    int i, j, median;
+    int keep = 0;
+
+    if (n < 5)
+        return n;
+
+    /* Sap xep chieu cao de tim gia tri trung vi. */
+    for (i = 0; i < n; ++i) {
+        int h = c[i].h;
+        j = i;
+
+        while (j > 0 && heights[j - 1] > h) {
+            heights[j] = heights[j - 1];
+            --j;
+        }
+
+        heights[j] = h;
+    }
+
+    median = heights[n / 2];
+
+    for (i = 0; i < n; ++i) {
+        /*
+         * Loai vung qua thap hoac qua cao
+         * so voi phan lon ky tu.
+         */
+        if (c[i].h * 100 < median * 55 ||
+            c[i].h * 100 > median * 160)
+            continue;
+
+        c[keep++] = c[i];
+    }
+
+    return keep;
+}
+static void normalize_glyph(const PlateCharacter *c,
+                            u8 glyph[PLATE_CHAR_PIXELS])
+{
+    int ox, oy;
+
+    memset(glyph, 0, PLATE_CHAR_PIXELS);
+
+    if (c->w <= 0 || c->h <= 0)
+        return;
+
+    /*
+     * Chuan hoa ky tu ve toan bo khung 20x30,
+     * khop voi dinh dang mau trong plate_training_data.c.
+     */
+    for (oy = 0; oy < PLATE_CHAR_H; ++oy) {
+        int sy = c->y + (oy * c->h) / PLATE_CHAR_H;
+
+        for (ox = 0; ox < PLATE_CHAR_W; ++ox) {
+            int sx = c->x + (ox * c->w) / PLATE_CHAR_W;
+
+            glyph[oy * PLATE_CHAR_W + ox] =
+                bw[sy * PLATE_ROI_W + sx] ? 1U : 0U;
+        }
+    }
+}
+
+int plate_presence_score(const u8 *rgb, u32 stride)
+{
+    PlateCharacter c[MAX_COMPONENTS];
+    int fg, n, i, plausible = 0;
+    make_binary(rgb, stride, &fg);
+    n = find_components(c, MAX_COMPONENTS);
+    for (i = 0; i < n; ++i) if (c[i].h >= 24) plausible++;
+    if (fg < 3 || fg > 42 || plausible < 5) return 0;
+    if (plausible > 10) plausible = 10;
+    return 35 + plausible * 6;
+}
+
+int plate_recognize(const u8 *rgb, u32 stride, PlateResult *r)
+{
+    PlateCharacter all[MAX_COMPONENTS];
+    int n, i, keep = 0, mincy = 999, maxcy = 0, split;
+    u8 glyph[PLATE_CHAR_PIXELS];
+    memset(r, 0, sizeof(*r));
+    make_binary(rgb, stride, &r->foreground_percent);
+    n = find_components(all, MAX_COMPONENTS); r->component_count = n;
+    /* Prefer full-height characters when dust/noise creates more than ten
+       candidate components. */
+    qsort(all, n, sizeof(all[0]), cmp_quality);
+    for (i = 0; i < n; ++i) {
+        int cy = all[i].y + all[i].h / 2;
+        if (cy < mincy) mincy = cy;
+        if (cy > maxcy) maxcy = cy;
+    }
+    split = (mincy + maxcy) / 2;
+    for (i = 0; i < n && keep < PLATE_MAX_CHARS; ++i) {
+        all[i].line = (maxcy - mincy > 34 && all[i].y + all[i].h / 2 > split) ? 1 : 0;
+        r->chars[keep++] = all[i];
+    }
+    qsort(r->chars, keep, sizeof(r->chars[0]), cmp_x);
+    r->character_count = keep;
+    r->line_count = keep > 0 ? 1 : 0;
+    for (i = 0; i < keep; ++i) if (r->chars[i].line) r->line_count = 2;
+    {
+        int p1 = 0, p2 = 0;
+        for (i = 0; i < keep; ++i) {
+            PlateOcrResult o;
+            int line_pos = (r->chars[i].line == 0) ? p1 : p2;
+            int mode = PLATE_OCR_DIGITS;
+            /* Vietnamese plates: two province digits, then a letter; the
+               remaining positions are digits (e.g. 59H1 / 12345). */
+            if (r->chars[i].line == 0 && line_pos == 2)
+                mode = PLATE_OCR_LETTERS;
+            normalize_glyph(&r->chars[i], glyph);
+            o = plate_ocr_recognize_mode(glyph, mode);
+            r->chars[i].value = o.value; r->chars[i].confidence = o.confidence;
+            if (r->chars[i].line == 0 && p1 < PLATE_MAX_CHARS) r->line1[p1++] = o.value;
+            if (r->chars[i].line == 1 && p2 < PLATE_MAX_CHARS) r->line2[p2++] = o.value;
+        }
+        r->line1[p1] = 0; r->line2[p2] = 0;
+        if (p2)
+            snprintf(r->text, sizeof(r->text), "%s %s", r->line1, r->line2);
+        else
+            snprintf(r->text, sizeof(r->text), "%s", r->line1);
+    }
+    r->valid_plate = (keep >= 7 && keep <= 10);
+    return r->valid_plate;
+}

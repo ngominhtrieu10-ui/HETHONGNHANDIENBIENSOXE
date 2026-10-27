@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<Runs Version="1" Minor="0">
+	<Run Id="zynq_gaussian_blur_3x3_0_0_synth_1" LaunchDir="/home/bienso/Pictures/bienso/22_ov7725_lcd_test/22_ov7725_lcd/ov7725_lcd/ov7725_lcd.runs/zynq_gaussian_blur_3x3_0_0_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+	<Run Id="zynq_morphological_open_0_0_synth_1" LaunchDir="/home/bienso/Pictures/bienso/22_ov7725_lcd_test/22_ov7725_lcd/ov7725_lcd/ov7725_lcd.runs/zynq_morphological_open_0_0_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+	<Run Id="zynq_otsu_threshold_0_0_synth_1" LaunchDir="/home/bienso/Pictures/bienso/22_ov7725_lcd_test/22_ov7725_lcd/ov7725_lcd/ov7725_lcd.runs/zynq_otsu_threshold_0_0_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+	<Run Id="synth_1" LaunchDir="/home/bienso/Pictures/bienso/22_ov7725_lcd_test/22_ov7725_lcd/ov7725_lcd/ov7725_lcd.runs/synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado">
+		<Parent Id="zynq_gaussian_blur_3x3_0_0_synth_1"/>
+		<Parent Id="zynq_morphological_open_0_0_synth_1"/>
+		<Parent Id="zynq_otsu_threshold_0_0_synth_1"/>
+	</Run>
+	<Run Id="impl_1" LaunchDir="/home/bienso/Pictures/bienso/22_ov7725_lcd_test/22_ov7725_lcd/ov7725_lcd/ov7725_lcd.runs/impl_1" FlowId="Vivado_Implementation" FromStepId="init_design" ToStepId="write_bitstream">
+		<Parent Id="synth_1"/>
+		<Parent Id="zynq_gaussian_blur_3x3_0_0_synth_1"/>
+		<Parent Id="zynq_morphological_open_0_0_synth_1"/>
+		<Parent Id="zynq_otsu_threshold_0_0_synth_1"/>
+	</Run>
+	<Parameters>
+		<Parameter Name="runs.monitorLSFJobs" Val="true" Type="bool"/>
+	</Parameters>
+</Runs>
+

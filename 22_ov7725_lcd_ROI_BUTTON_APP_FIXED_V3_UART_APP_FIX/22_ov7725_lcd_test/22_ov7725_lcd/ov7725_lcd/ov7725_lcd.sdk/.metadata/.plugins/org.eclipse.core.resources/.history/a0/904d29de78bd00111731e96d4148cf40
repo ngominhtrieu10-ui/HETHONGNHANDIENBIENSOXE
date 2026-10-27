@@ -1,0 +1,118 @@
+
+
+
+}
+
+int main(void)
+{
+
+    int st,score=0; u32 stable_ms=0,hold_ms=0,cooldown_ms=0,tick=0;
+    AppState state=SCANNING; OverlayFrame frame={LCD_WIDTH,LCD_HEIGHT,LCD_LINE_BYTES}; PlateResult result;
+	#if ENABLE_HARDCODE_TEST
+		run_hardcode_test();
+
+		while (1) {
+			usleep(100000);
+		}
+	#endif
+    app_stage=1;
+#if ENABLE_UART_APP
+    if (plate_app_bridge_init(115200U) != XST_SUCCESS) fail(2);
+#endif
+    APP_LOG("\r\n=== ZYNQ PLATE LCD AUTO V3 ===\r\n");
+    APP_LOG("ROI x=%u y=%u w=%u h=%u\r\n",ROI_X,ROI_Y,PLATE_ROI_W,PLATE_ROI_H);
+    /* Reserve 0x01100000..0x015fffff as noncacheable DMA memory. */
+    { UINTPTR p; Xil_DCacheFlush();
+      for(p=FB_Base;p<FB_Base+FB_TOTAL_BYTES;p+=0x100000U)
+          Xil_SetTlbAttributes(p,NORM_NONCACHE);
+    }
+    app_stage=2;
+    VIDEO_Mode=VMODE_800x480; memset((void *)FB_Base,0,FB_TOTAL_BYTES); Xil_DCacheFlushRange(FB_Base,FB_TOTAL_BYTES);
+    app_stage=3;
+    st=DisplayInitialize(&Dispctrl,XVTC_DEVICE_ID,CLOCK_ADDR);
+    if(st!=XST_SUCCESS){APP_LOG("ERROR DisplayInitialize=%d\r\n",st);fail(3);}
+    app_stage=4;
+    if(DisplaySetMode(&Dispctrl,&VIDEO_Mode)!=XST_SUCCESS) fail(4);
+    app_stage=5;
+    if(VDMA_Init_640_to_800()!=XST_SUCCESS){APP_LOG("ERROR VDMA\r\n");fail(5);}
+    app_stage=6; ImageProcessing_Init();
+    app_stage=7; SCCB_Init(); OV7725_Init();
+    app_stage=8; if(DisplayStart(&Dispctrl)!=XST_SUCCESS) fail(8);
+    app_stage=9;
+    APP_LOG("[PLATE] Pipeline running - LCD automatic capture\r\n");
+#if ENABLE_UART_APP
+    plate_app_send_ready();
+#endif
+    while(1){
+        u8 *fb=completed_frame();
+#if ENABLE_UART_APP
+        plate_app_bridge_poll();
+#endif
+        app_heartbeat++;
+        app_vdma_write_status=XAxiVdma_GetStatus(&Vdma,XAXIVDMA_WRITE);
+        app_vdma_read_status=XAxiVdma_GetStatus(&Vdma,XAXIVDMA_READ);
+        if(state==SCANNING){
+            /* Framebuffer is noncacheable. */
+            score=plate_presence_score(fb+ROI_Y*LCD_LINE_BYTES+ROI_X*3,LCD_LINE_BYTES);
+            if(score>=PRESENCE_SCORE_MIN) stable_ms+=LOOP_MS; else stable_ms=0;
+            if(stable_ms >= STABLE_REQUIRED_MS){
+#if ENABLE_UART_APP
+                plate_app_clear_capture_request();
+#endif
+                /* Capture automatically after consecutive qualifying scans. */
+                state=CAPTURE_FREEZE;stable_ms=0;
+#if ENABLE_UART_APP
+                plate_app_send_status(score,0,"CAPTURING");
+#endif
+                APP_LOG("[PLATE] Capture requested\r\n");
+            }
+            else draw_live_ui(&frame,score,stable_ms);
+        }else if(state==CAPTURE_FREEZE){
+            {
+                u32 tries=1000; int b;
+                app_stage=10;
+                XAxiVdma_DmaStop(&Vdma,XAXIVDMA_WRITE);
+                while(!(XAxiVdma_GetStatus(&Vdma,XAXIVDMA_WRITE)&1U) && tries--) usleep(1000);
+                if(!(XAxiVdma_GetStatus(&Vdma,XAXIVDMA_WRITE)&1U)) fail(10);
+                fb=completed_frame();
+                copy_roi(fb);
+                /* All read buffers receive the same frozen frame. */
+                if(fb!=(u8 *)FB_Base) memcpy((void *)FB_Base,fb,FRAME_BYTES);
+                app_stage=11;
+#if ENABLE_UART_APP
+                plate_app_send_status(score,0,"PROCESSING");
+#endif
+                st=plate_recognize(snapshot,PLATE_ROI_W*3,&result);
+                APP_LOG("[PLATE] fg=%d%% components=%d chars=%d lines=%d valid=%d\r\n",result.foreground_percent,result.component_count,result.character_count,result.line_count,st);
+                APP_LOG("[PLATE] line1=%s\r\n",result.line1); APP_LOG("[PLATE] line2=%s\r\n",result.line2); APP_LOG("[PLATE] result=%s\r\n",result.text);
+#if ENABLE_UART_APP
+                plate_app_send_result(&result);
+#endif
+#if ENABLE_UART_APP
+                plate_app_send_status(score,0,"HOLD");
+#endif
+                draw_result(&frame,&result);
+                for(b=1;b<(int)FB_Num;b++) memcpy((void *)(FB_Base+(UINTPTR)b*FRAME_BYTES),(void *)FB_Base,FRAME_BYTES);
+                app_stage=12; state=RESULT_HOLD; hold_ms=RESULT_HOLD_MS;
+            }
+        }else if(state==RESULT_HOLD){
+            if(hold_ms>LOOP_MS) hold_ms-=LOOP_MS;
+            else{hold_ms=0;
+                { u32 b,y; for(b=0;b<FB_Num;b++) for(y=0;y<LCD_HEIGHT;y++)
+                    memset((void *)(FB_Base+b*FRAME_BYTES+y*LCD_LINE_BYTES+CAM_LINE_BYTES),0,LCD_LINE_BYTES-CAM_LINE_BYTES); }
+                if(XAxiVdma_DmaStart(&Vdma,XAXIVDMA_WRITE)!=XST_SUCCESS) fail(13);
+                app_stage=9;state=COOLDOWN;cooldown_ms=COOLDOWN_MS;APP_LOG("[PLATE] Resume camera\r\n");}
+        }else{
+            if(cooldown_ms>LOOP_MS) cooldown_ms-=LOOP_MS; else{cooldown_ms=0;state=SCANNING;}
+        }
+        usleep(LOOP_MS*1000U); tick+=LOOP_MS;
+        if((tick%500U)==0 && state==SCANNING) {
+            APP_LOG("[SCAN] score=%d stable=%lu\r\n",score,stable_ms);
+#if ENABLE_UART_APP
+            plate_app_send_status(score,stable_ms,"SCANNING");
+#endif
+        }
+    }
+    return 0;
+}
+

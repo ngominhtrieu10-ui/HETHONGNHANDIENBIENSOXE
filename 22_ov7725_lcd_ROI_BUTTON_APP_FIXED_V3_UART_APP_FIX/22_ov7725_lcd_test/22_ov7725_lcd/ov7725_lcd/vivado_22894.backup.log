@@ -1,0 +1,890 @@
+#-----------------------------------------------------------
+# Vivado v2018.3 (64-bit)
+# SW Build 2405991 on Thu Dec  6 23:36:41 MST 2018
+# IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
+# Start of session at: Thu Sep  3 20:33:44 2026
+# Process ID: 22894
+# Current directory: /home/bienso/Videos/22_ov7725_lcd_test/22_ov7725_lcd/ov7725_lcd
+# Command line: vivado ov7725_lcd.xpr
+# Log file: /home/bienso/Videos/22_ov7725_lcd_test/22_ov7725_lcd/ov7725_lcd/vivado.log
+# Journal file: /home/bienso/Videos/22_ov7725_lcd_test/22_ov7725_lcd/ov7725_lcd/vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project ov7725_lcd.xpr
+Scanning sources...
+Finished scanning sources
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository '/home/bienso/Videos/22_ov7725_lcd_test/22_ov7725_lcd/ov7725_lcd/ip_repo/ov7725_data_1.0'.
+INFO: [IP_Flow 19-1700] Loaded user IP repository '/home/bienso/Videos/22_ov7725_lcd_test/22_ov7725_lcd/ov7725_lcd/ip_repo/tft_lcd_1.0'.
+INFO: [IP_Flow 19-1700] Loaded user IP repository '/home/bienso/Videos/22_ov7725_lcd_test/22_ov7725_lcd/ov7725_lcd/ip_repo/axi_dynclk_v1_0'.
+INFO: [IP_Flow 19-1700] Loaded user IP repository '/home/bienso/Downloads/TemplatesBienSo/hls_gaussian_blur'.
+INFO: [IP_Flow 19-1700] Loaded user IP repository '/home/bienso/Downloads/TemplatesBienSo/hls_otsu_threshold'.
+INFO: [IP_Flow 19-1700] Loaded user IP repository '/home/bienso/Downloads/TemplatesBienSo/hls_morphological_open'.
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/home/bienso/fpga/Xilinx/Vivado/2018.3/data/ip'.
+WARNING: [IP_Flow 19-395] Problem validating against XML schema: see 'spirit:order' : Invalid value format for this type
+CRITICAL WARNING: [IP_Flow 19-182] Failed to load BOM file '/home/bienso/Videos/22_ov7725_lcd_test/22_ov7725_lcd/ov7725_lcd/ov7725_lcd.srcs/sources_1/bd/zynq/ip/zynq_v_tc_0_0/zynq_v_tc_0_0.xml'.
+CRITICAL WARNING: [IP_Flow 19-183] Failed to load IP instance 'zynq_v_tc_0_0'.
+CRITICAL WARNING: [IP_Flow 19-1835] Failed to recreate IP instance 'zynq_v_tc_0_0'. Error reading project file(s).
+open_project: Time (s): cpu = 00:00:18 ; elapsed = 00:00:07 . Memory (MB): peak = 6449.184 ; gain = 138.121 ; free physical = 6793 ; free virtual = 12770
+update_compile_order -fileset sources_1
+open_bd_design [get_files */zynq.bd]
+Adding cell -- digilentinc.com:ip:axi_dynclk:1.0 - axi_dynclk_0
+Adding cell -- xilinx.com:ip:smartconnect:1.0 - axi_smc
+Adding cell -- xilinx.com:ip:axi_vdma:6.3 - axi_vdma_0
+Adding cell -- xilinx.com:ip:processing_system7:5.5 - processing_system7_0
+Adding cell -- xilinx.com:ip:axi_interconnect:2.1 - ps7_0_axi_periph
+Adding cell -- xilinx.com:ip:axi_crossbar:2.1 - xbar
+Adding cell -- xilinx.com:ip:axi_protocol_converter:2.1 - auto_pc
+Adding cell -- xilinx.com:ip:proc_sys_reset:5.0 - rst_ps7_0_100M
+Adding cell -- xilinx.com:user:tft_lcd:1.0 - tft_lcd_0
+Adding cell -- xilinx.com:ip:v_axi4s_vid_out:4.0 - v_axi4s_vid_out_0
+Adding cell -- xilinx.com:ip:v_tc:6.1 - v_tc_0
+INFO: [BD 41-434] Could not find an IP with XCI file by name: zynq_v_tc_0_0 
+Adding cell -- xilinx.com:ip:v_vid_in_axi4s:4.0 - v_vid_in_axi4s_0
+Adding cell -- xilinx.com:user:ov7725_data:1.0 - ov7725_data_0
+Adding cell -- xilinx.com:hls:gaussian_blur_3x3:1.0 - gaussian_blur_3x3_0
+Adding cell -- xilinx.com:hls:otsu_threshold:1.0 - otsu_threshold_0
+Adding cell -- xilinx.com:module_ref:axis_24to8:1.0 - axis_24to8_0
+Adding cell -- xilinx.com:hls:morphological_open:1.0 - morphological_open_0
+Adding cell -- xilinx.com:module_ref:axis_8to24:1.0 - axis_8to24_0
+Adding cell -- xilinx.com:ip:axi_vdma:6.3 - axi_vdma_roi_0
+WARNING: [BD 41-1731] Type mismatch between connected pins: /axi_dynclk_0/LOCKED_O(undef) and /tft_lcd_0/vid_rst(rst)
+WARNING: [BD 41-1731] Type mismatch between connected pins: /axi_dynclk_0/LOCKED_O(undef) and /ov7725_data_0/sys_rst_n(rst)
+WARNING: [BD 41-1731] Type mismatch between connected pins: /ov7725_data_0/tft_ce(undef) and /v_vid_in_axi4s_0/vid_io_in_ce(ce)
+Successfully read diagram <zynq> from BD file </home/bienso/Videos/22_ov7725_lcd_test/22_ov7725_lcd/ov7725_lcd/ov7725_lcd.srcs/sources_1/bd/zynq/zynq.bd>
+INFO: [BD 41-433] 
+Design successfully migrated to use XCI files...
+Wrote  : </home/bienso/Videos/22_ov7725_lcd_test/22_ov7725_lcd/ov7725_lcd/ov7725_lcd.srcs/sources_1/bd/zynq/ui/bd_e1a0d542.ui> 
+zynq
+current_bd_design zynq
+zynq
+assign_bd_address \
+-target_address_space [get_bd_addr_spaces axi_vdma_roi_0/Data_MM2S] \
+[get_bd_addr_segs processing_system7_0/S_AXI_HP0/HP0_DDR_LOWOCM]
+assign_bd_address \
+-target_address_space [get_bd_addr_spaces axi_vdma_roi_0/Data_S2MM] \
+[get_bd_addr_segs processing_system7_0/S_AXI_HP0/HP0_DDR_LOWOCM]
+get_bd_addr_segs -of_objects \
+[get_bd_addr_spaces axi_vdma_roi_0/Data_MM2S]
+/axi_vdma_roi_0/Data_MM2S/SEG_processing_system7_0_HP0_DDR_LOWOCM
+get_bd_addr_segs -of_objects \
+[get_bd_addr_spaces axi_vdma_roi_0/Data_S2MM]
+/axi_vdma_roi_0/Data_S2MM/SEG_processing_system7_0_HP0_DDR_LOWOCM
+validate_bd_design
+xit::source_ipfile: Time (s): cpu = 00:00:10 ; elapsed = 00:00:10 . Memory (MB): peak = 7092.094 ; gain = 0.000 ; free physical = 6617 ; free virtual = 12578
+WARNING: [BD 41-926] Following properties on interface pin /axis_8to24_0/s_axis have been updated from connected ip. They may not be synchronized with cell properties. You can set property on interface pin directly to confirm the value and resolve the warning.
+	LAYERED_METADATA=xilinx.com:interface:datatypes:1.0 {CLK {datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 1} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0}}} TDATA {datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 8} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0} integer {signed {attribs {resolve_type immediate dependency {} format bool minimum {} maximum {}} value false}}}} TDATA_WIDTH 8 TUSER {datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 1} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0} integer {signed {attribs {resolve_type immediate dependency {} format bool minimum {} maximum {}} value false}}}} TUSER_WIDTH 1}
+
+WARNING: [BD 41-927] Following properties on pin /axi_dynclk_0/REF_CLK_I have been updated from connected ip. They may not be synchronized with cell properties. You can set property on pin directly to confirm the value and resolve the warning.
+	CLK_DOMAIN=zynq_processing_system7_0_0_FCLK_CLK0 
+WARNING: [BD 41-927] Following properties on pin /axi_dynclk_0/PXL_CLK_O have been updated from connected ip. They may not be synchronized with cell properties. You can set property on pin directly to confirm the value and resolve the warning.
+	CLK_DOMAIN=zynq_axi_dynclk_0_0_PXL_CLK_O 
+WARNING: [BD 41-927] Following properties on pin /axi_dynclk_0/s00_axi_aclk have been updated from connected ip. They may not be synchronized with cell properties. You can set property on pin directly to confirm the value and resolve the warning.
+	CLK_DOMAIN=zynq_processing_system7_0_0_FCLK_CLK0 
+WARNING: [BD 41-927] Following properties on pin /axis_24to8_0/aclk have been updated from connected ip. They may not be synchronized with cell properties. You can set property on pin directly to confirm the value and resolve the warning.
+	CLK_DOMAIN=zynq_processing_system7_0_0_FCLK_CLK0 
+WARNING: [BD 41-927] Following properties on pin /axis_8to24_0/aclk have been updated from connected ip. They may not be synchronized with cell properties. You can set property on pin directly to confirm the value and resolve the warning.
+	CLK_DOMAIN=zynq_processing_system7_0_0_FCLK_CLK0 
+validate_bd_design: Time (s): cpu = 00:00:22 ; elapsed = 00:00:20 . Memory (MB): peak = 7092.094 ; gain = 0.000 ; free physical = 6614 ; free virtual = 12575
+save_bd_design
+Wrote  : </home/bienso/Videos/22_ov7725_lcd_test/22_ov7725_lcd/ov7725_lcd/ov7725_lcd.srcs/sources_1/bd/zynq/zynq.bd> 
+reset_target all [get_files */zynq.bd]
+generate_target all [get_files */zynq.bd]
+INFO: [BD 41-1662] The design 'zynq.bd' is already validated. Therefore parameter propagation will not be re-run.
+VHDL Output written to : /home/bienso/Videos/22_ov7725_lcd_test/22_ov7725_lcd/ov7725_lcd/ov7725_lcd.srcs/sources_1/bd/zynq/synth/zynq.v
+VHDL Output written to : /home/bienso/Videos/22_ov7725_lcd_test/22_ov7725_lcd/ov7725_lcd/ov7725_lcd.srcs/sources_1/bd/zynq/sim/zynq.v
+VHDL Output written to : /home/bienso/Videos/22_ov7725_lcd_test/22_ov7725_lcd/ov7725_lcd/ov7725_lcd.srcs/sources_1/bd/zynq/hdl/zynq_wrapper.v
+INFO: [BD 41-1029] Generation completed for the IP Integrator block processing_system7_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block axi_vdma_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block v_axi4s_vid_out_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block tft_lcd_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block axi_dynclk_0 .
+Exporting to file /home/bienso/Videos/22_ov7725_lcd_test/22_ov7725_lcd/ov7725_lcd/ov7725_lcd.srcs/sources_1/bd/zynq/ip/zynq_axi_smc_0/bd_0/hw_handoff/zynq_axi_smc_0.hwh
+Generated Block Design Tcl file /home/bienso/Videos/22_ov7725_lcd_test/22_ov7725_lcd/ov7725_lcd/ov7725_lcd.srcs/sources_1/bd/zynq/ip/zynq_axi_smc_0/bd_0/hw_handoff/zynq_axi_smc_0_bd.tcl
+Generated Hardware Definition File /home/bienso/Videos/22_ov7725_lcd_test/22_ov7725_lcd/ov7725_lcd/ov7725_lcd.srcs/sources_1/bd/zynq/ip/zynq_axi_smc_0/bd_0/synth/zynq_axi_smc_0.hwdef
+INFO: [BD 41-1029] Generation completed for the IP Integrator block axi_smc .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block rst_ps7_0_100M .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block ov7725_data_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block v_vid_in_axi4s_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block ps7_0_axi_periph/xbar .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block gaussian_blur_3x3_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block otsu_threshold_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block axis_24to8_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block morphological_open_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block axis_8to24_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block axi_vdma_roi_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block v_tc_0 .
+WARNING: [IP_Flow 19-4994] Overwriting existing constraint file '/home/bienso/Videos/22_ov7725_lcd_test/22_ov7725_lcd/ov7725_lcd/ov7725_lcd.srcs/sources_1/bd/zynq/ip/zynq_auto_pc_0/zynq_auto_pc_0_ooc.xdc'
+INFO: [BD 41-1029] Generation completed for the IP Integrator block ps7_0_axi_periph/s00_couplers/auto_pc .
+Exporting to file /home/bienso/Videos/22_ov7725_lcd_test/22_ov7725_lcd/ov7725_lcd/ov7725_lcd.srcs/sources_1/bd/zynq/hw_handoff/zynq.hwh
+Generated Block Design Tcl file /home/bienso/Videos/22_ov7725_lcd_test/22_ov7725_lcd/ov7725_lcd/ov7725_lcd.srcs/sources_1/bd/zynq/hw_handoff/zynq_bd.tcl
+Generated Hardware Definition File /home/bienso/Videos/22_ov7725_lcd_test/22_ov7725_lcd/ov7725_lcd/ov7725_lcd.srcs/sources_1/bd/zynq/synth/zynq.hwdef
+generate_target: Time (s): cpu = 00:00:16 ; elapsed = 00:00:16 . Memory (MB): peak = 7146.527 ; gain = 0.000 ; free physical = 6481 ; free virtual = 12400
+export_ip_user_files \
+-of_objects [get_files */zynq.bd] \
+-no_script -sync -force -quiet
+update_compile_order -fileset sources_1
+INFO: [Vivado 12-3458] The update_compile_order command is not intended for use in the GUI, where compile order updates occur based on project changes and the hierarchy update settings. No update performed.
+get_ips *v_tc*
+zynq_v_tc_0_0
+report_ip_status
+Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2018.3 (lin64) Build 2405991 Thu Dec  6 23:36:41 MST 2018
+| Date         : Thu Sep  3 20:36:26 2026
+| Host         : bienso running 64-bit Ubuntu 18.04.6 LTS
+| Command      : report_ip_status
+------------------------------------------------------------------------------------
+
+IP Status Summary
+
+1. Project IP Status
+--------------------
+Your project uses 58 IP. Some of these IP may have undergone changes in this release of the software. Please review the recommended actions.
+
+More information on the Xilinx versioning policy is available at www.xilinx.com.
+
+Project IP Instances
++-----------------------------+------------+---------------------+-----------+--------------------+---------+-----------------------+------------+----------------------+
+| Instance Name               | Status     | Recommendation      | Change    | IP Name            | IP      | New Version           | New        | Original Part        |
+|                             |            |                     | Log       |                    | Version |                       | License    |                      |
++-----------------------------+------------+---------------------+-----------+--------------------+---------+-----------------------+------------+----------------------+
+| gaussian_blur_3x3_0         | Up-to-date | No changes required | Change    | Gaussian_blur_3x3  | 1.0     | 1.0 (Rev. 2114739454) | Included   | xc7z020clg400-1      |
+|                             |            |                     | Log not   |                    | (Rev.   |                       |            |                      |
+|                             |            |                     | available |                    | 2114739 |                       |            |                      |
++-----------------------------+------------+---------------------+-----------+--------------------+---------+-----------------------+------------+----------------------+
+| zynq_axi_dynclk_0_0         | Up-to-date | No changes required | Change    | Dynamic Clock      | 1.0     | 1.0 (Rev. 4)          | Included   | xc7z020clg400-1      |
+|                             |            |                     | Log not   | Generator          | (Rev.   |                       |            |                      |
+|                             |            |                     | available |                    | 4)      |                       |            |                      |
++-----------------------------+------------+---------------------+-----------+--------------------+---------+-----------------------+------------+----------------------+
+| zynq_axi_smc_0              | Up-to-date | No changes required |  *(1)     | AXI SmartConnect   | 1.0     | 1.0 (Rev. 10)         | Included   | xc7z020clg400-1      |
+|                             |            |                     |           |                    | (Rev.   |                       |            |                      |
+|                             |            |                     |           |                    | 10)     |                       |            |                      |
++-----------------------------+------------+---------------------+-----------+--------------------+---------+-----------------------+------------+----------------------+
+| zynq_axi_vdma_0_0           | Up-to-date | No changes required |  *(2)     | AXI Video Direct   | 6.3     | 6.3 (Rev. 6)          | Included   | xc7z020clg400-1      |
+|                             |            |                     |           | Memory Access      | (Rev.   |                       |            |                      |
+|                             |            |                     |           |                    | 6)      |                       |            |                      |
++-----------------------------+------------+---------------------+-----------+--------------------+---------+-----------------------+------------+----------------------+
+| zynq_axi_vdma_roi_0_0       | Up-to-date | No changes required |  *(3)     | AXI Video Direct   | 6.3     | 6.3 (Rev. 6)          | Included   | xc7z020clg400-1      |
+|                             |            |                     |           | Memory Access      | (Rev.   |                       |            |                      |
+|                             |            |                     |           |                    | 6)      |                       |            |                      |
++-----------------------------+------------+---------------------+-----------+--------------------+---------+-----------------------+------------+----------------------+
+| zynq_axis_24to8_0_1         | Up-to-date | No changes required | Change    | axis_24to8_v1_0    | 1.0     | 1.0 (Rev. 1)          | Included   | xc7z020clg400-1      |
+|                             |            |                     | Log not   |                    | (Rev.   |                       |            |                      |
+|                             |            |                     | available |                    | 1)      |                       |            |                      |
++-----------------------------+------------+---------------------+-----------+--------------------+---------+-----------------------+------------+----------------------+
+| zynq_axis_8to24_0_0         | Up-to-date | No changes required | Change    | axis_8to24_v1_0    | 1.0     | 1.0 (Rev. 1)          | Included   | xc7z020clg400-1      |
+|                             |            |                     | Log not   |                    | (Rev.   |                       |            |                      |
+|                             |            |                     | available |                    | 1)      |                       |            |                      |
++-----------------------------+------------+---------------------+-----------+--------------------+---------+-----------------------+------------+----------------------+
+| zynq_gaussian_blur_3x3_0_0  | Up-to-date | No changes required | Change    | Gaussian_blur_3x3  | 1.0     | 1.0 (Rev. 2114739454) | Included   | xc7z020clg400-1      |
+|                             |            |                     | Log not   |                    | (Rev.   |                       |            |                      |
+|                             |            |                     | available |                    | 2114739 |                       |            |                      |
++-----------------------------+------------+---------------------+-----------+--------------------+---------+-----------------------+------------+----------------------+
+| zynq_morphological_open_0_0 | Up-to-date | No changes required | Change    | Morphological_open | 1.0     | 1.0 (Rev. 2114739456) | Included   | xc7z020clg400-1      |
+|                             |            |                     | Log not   |                    | (Rev.   |                       |            |                      |
+|                             |            |                     | available |                    | 2114739 |                       |            |                      |
++-----------------------------+------------+---------------------+-----------+--------------------+---------+-----------------------+------------+----------------------+
+| zynq_otsu_threshold_0_0     | Up-to-date | No changes required | Change    | Otsu_threshold     | 1.0     | 1.0 (Rev. 2114739455) | Included   | xc7z020clg400-1      |
+|                             |            |                     | Log not   |                    | (Rev.   |                       |            |                      |
+|                             |            |                     | available |                    | 2114739 |                       |            |                      |
++-----------------------------+------------+---------------------+-----------+--------------------+---------+-----------------------+------------+----------------------+
+| zynq_ov7725_data_0_0        | Up-to-date | No changes required | Change    | ov7725_data_v1.0   | 1.0     | 1.0 (Rev. 16)         | Included   | xc7z020clg400-1      |
+|                             |            |                     | Log not   |                    | (Rev.   |                       |            |                      |
+|                             |            |                     | available |                    | 16)     |                       |            |                      |
++-----------------------------+------------+---------------------+-----------+--------------------+---------+-----------------------+------------+----------------------+
+| zynq_processing_system7_0_0 | Up-to-date | No changes required |  *(4)     | ZYNQ7 Processing   | 5.5     | 5.5 (Rev. 6)          | Included   | xc7z020clg400-1      |
+|                             |            |                     |           | System             | (Rev.   |                       |            |                      |
+|                             |            |                     |           |                    | 6)      |                       |            |                      |
++-----------------------------+------------+---------------------+-----------+--------------------+---------+-----------------------+------------+----------------------+
+| zynq_ps7_0_axi_periph_0     | Up-to-date | No changes required |  *(5)     | AXI Interconnect   | 2.1     | 2.1 (Rev. 19)         | Included   | xc7z020clg400-1      |
+|                             |            |                     |           |                    | (Rev.   |                       |            |                      |
+|                             |            |                     |           |                    | 19)     |                       |            |                      |
++-----------------------------+------------+---------------------+-----------+--------------------+---------+-----------------------+------------+----------------------+
+| zynq_rst_ps7_0_100M_0       | Up-to-date | No changes required |  *(6)     | Processor System   | 5.0     | 5.0 (Rev. 13)         | Included   | xc7z020clg400-1      |
+|                             |            |                     |           | Reset              | (Rev.   |                       |            |                      |
+|                             |            |                     |           |                    | 13)     |                       |            |                      |
++-----------------------------+------------+---------------------+-----------+--------------------+---------+-----------------------+------------+----------------------+
+| zynq_tft_lcd_0_0            | Up-to-date | No changes required | Change    | tft_lcd_v1.0       | 1.0     | 1.0 (Rev. 8)          | Included   | xc7z020clg400-1      |
+|                             |            |                     | Log not   |                    | (Rev.   |                       |            |                      |
+|                             |            |                     | available |                    | 8)      |                       |            |                      |
++-----------------------------+------------+---------------------+-----------+--------------------+---------+-----------------------+------------+----------------------+
+| zynq_v_axi4s_vid_out_0_0    | Up-to-date | No changes required |  *(7)     | AXI4-Stream to     | 4.0     | 4.0 (Rev. 10)         | Included   | xc7z020clg400-1      |
+|                             |            |                     |           | Video Out          | (Rev.   |                       |            |                      |
+|                             |            |                     |           |                    | 10)     |                       |            |                      |
++-----------------------------+------------+---------------------+-----------+--------------------+---------+-----------------------+------------+----------------------+
+| zynq_v_tc_0_0               | Up-to-date | No changes required |  *(8)     | Video Timing       | 6.1     | 6.1 (Rev. 13)         | Included   | xc7z020clg400-1      |
+|                             |            |                     |           | Controller         | (Rev.   |                       |            |                      |
+|                             |            |                     |           |                    | 13)     |                       |            |                      |
++-----------------------------+------------+---------------------+-----------+--------------------+---------+-----------------------+------------+----------------------+
+| zynq_v_vid_in_axi4s_0_0     | Up-to-date | No changes required |  *(9)     | Video In to        | 4.0     | 4.0 (Rev. 9)          | Included   | xc7z020clg400-1      |
+|                             |            |                     |           | AXI4-Stream        | (Rev.   |                       |            |                      |
+|                             |            |                     |           |                    | 9)      |                       |            |                      |
++-----------------------------+------------+---------------------+-----------+--------------------+---------+-----------------------+------------+----------------------+
+| bd_7cab_arsw_0              | Up-to-date | No changes required |  *(10)    | SmartConnect       | 1.0     | 1.0 (Rev. 6)          | Included   | xc7z020clg400-1      |
+|                             |            |                     |           | Switchboard        | (Rev.   |                       |            |                      |
+|                             |            |                     |           |                    | 6)      |                       |            |                      |
++-----------------------------+------------+---------------------+-----------+--------------------+---------+-----------------------+------------+----------------------+
+| bd_7cab_awsw_0              | Up-to-date | No changes required |  *(11)    | SmartConnect       | 1.0     | 1.0 (Rev. 6)          | Included   | xc7z020clg400-1      |
+|                             |            |                     |           | Switchboard        | (Rev.   |                       |            |                      |
+|                             |            |                     |           |                    | 6)      |                       |            |                      |
++-----------------------------+------------+---------------------+-----------+--------------------+---------+-----------------------+------------+----------------------+
+| bd_7cab_bsw_0               | Up-to-date | No changes required |  *(12)    | SmartConnect       | 1.0     | 1.0 (Rev. 6)          | Included   | xc7z020clg400-1      |
+|                             |            |                     |           | Switchboard        | (Rev.   |                       |            |                      |
+|                             |            |                     |           |                    | 6)      |                       |            |                      |
++-----------------------------+------------+---------------------+-----------+--------------------+---------+-----------------------+------------+----------------------+
+| bd_7cab_m00arn_0            | Up-to-date | No changes required |  *(13)    | SmartConnect Node  | 1.0     | 1.0 (Rev. 10)         | Included   | xc7z020clg400-1      |
+|                             |            |                     |           |                    | (Rev.   |                       |            |                      |
+|                             |            |                     |           |                    | 10)     |                       |            |                      |
++-----------------------------+------------+---------------------+-----------+--------------------+---------+-----------------------+------------+----------------------+
+| bd_7cab_m00awn_0            | Up-to-date | No changes required |  *(14)    | SmartConnect Node  | 1.0     | 1.0 (Rev. 10)         | Included   | xc7z020clg400-1      |
+|                             |            |                     |           |                    | (Rev.   |                       |            |                      |
+|                             |            |                     |           |                    | 10)     |                       |            |                      |
++-----------------------------+------------+---------------------+-----------+--------------------+---------+-----------------------+------------+----------------------+
+| bd_7cab_m00bn_0             | Up-to-date | No changes required |  *(15)    | SmartConnect Node  | 1.0     | 1.0 (Rev. 10)         | Included   | xc7z020clg400-1      |
+|                             |            |                     |           |                    | (Rev.   |                       |            |                      |
+|                             |            |                     |           |                    | 10)     |                       |            |                      |
++-----------------------------+------------+---------------------+-----------+--------------------+---------+-----------------------+------------+----------------------+
+| bd_7cab_m00e_0              | Up-to-date | No changes required |  *(16)    | SC EXIT            | 1.0     | 1.0 (Rev. 8)          | Included   | xc7z020clg400-1      |
+|                             |            |                     |           |                    | (Rev.   |                       |            |                      |
+|                             |            |                     |           |                    | 8)      |                       |            |                      |
++-----------------------------+------------+---------------------+-----------+--------------------+---------+-----------------------+------------+----------------------+
+| bd_7cab_m00rn_0             | Up-to-date | No changes required |  *(17)    | SmartConnect Node  | 1.0     | 1.0 (Rev. 10)         | Included   | xc7z020clg400-1      |
+|                             |            |                     |           |                    | (Rev.   |                       |            |                      |
+|                             |            |                     |           |                    | 10)     |                       |            |                      |
++-----------------------------+------------+---------------------+-----------+--------------------+---------+-----------------------+------------+----------------------+
+| bd_7cab_m00s2a_0            | Up-to-date | No changes required |  *(18)    | SmartConnect       | 1.0     | 1.0 (Rev. 7)          | Included   | xc7z020clg400-1      |
+|                             |            |                     |           | SC2AXI Bridge      | (Rev.   |                       |            |                      |
+|                             |            |                     |           |                    | 7)      |                       |            |                      |
++-----------------------------+------------+---------------------+-----------+--------------------+---------+-----------------------+------------+----------------------+
+| bd_7cab_m00wn_0             | Up-to-date | No changes required |  *(19)    | SmartConnect Node  | 1.0     | 1.0 (Rev. 10)         | Included   | xc7z020clg400-1      |
+|                             |            |                     |           |                    | (Rev.   |                       |            |                      |
+|                             |            |                     |           |                    | 10)     |                       |            |                      |
++-----------------------------+------------+---------------------+-----------+--------------------+---------+-----------------------+------------+----------------------+
+| bd_7cab_one_0               | Up-to-date | No changes required |  *(20)    | Constant           | 1.1     | 1.1 (Rev. 5)          | Included   | xc7z020clg400-1      |
+|                             |            |                     |           |                    | (Rev.   |                       |            |                      |
+|                             |            |                     |           |                    | 5)      |                       |            |                      |
++-----------------------------+------------+---------------------+-----------+--------------------+---------+-----------------------+------------+----------------------+
+| bd_7cab_psr_aclk_0          | Up-to-date | No changes required |  *(21)    | Processor System   | 5.0     | 5.0 (Rev. 13)         | Included   | xc7z020clg400-1      |
+|                             |            |                     |           | Reset              | (Rev.   |                       |            |                      |
+|                             |            |                     |           |                    | 13)     |                       |            |                      |
++-----------------------------+------------+---------------------+-----------+--------------------+---------+-----------------------+------------+----------------------+
+| bd_7cab_rsw_0               | Up-to-date | No changes required |  *(22)    | SmartConnect       | 1.0     | 1.0 (Rev. 6)          | Included   | xc7z020clg400-1      |
+|                             |            |                     |           | Switchboard        | (Rev.   |                       |            |                      |
+|                             |            |                     |           |                    | 6)      |                       |            |                      |
++-----------------------------+------------+---------------------+-----------+--------------------+---------+-----------------------+------------+----------------------+
+| bd_7cab_s00a2s_0            | Up-to-date | No changes required |  *(23)    | SmartConnect       | 1.0     | 1.0 (Rev. 7)          | Included   | xc7z020clg400-1      |
+|                             |            |                     |           | AXI2SC Bridge      | (Rev.   |                       |            |                      |
+|                             |            |                     |           |                    | 7)      |                       |            |                      |
++-----------------------------+------------+---------------------+-----------+--------------------+---------+-----------------------+------------+----------------------+
+| bd_7cab_s00mmu_0            | Up-to-date | No changes required |  *(24)    | SC MMU             | 1.0     | 1.0 (Rev. 7)          | Included   | xc7z020clg400-1      |
+|                             |            |                     |           |                    | (Rev.   |                       |            |                      |
+|                             |            |                     |           |                    | 7)      |                       |            |                      |
++-----------------------------+------------+---------------------+-----------+--------------------+---------+-----------------------+------------+----------------------+
+| bd_7cab_s00sic_0            | Up-to-date | No changes required |  *(25)    | SC SI_CONVERTER    | 1.0     | 1.0 (Rev. 7)          | Included   | xc7z020clg400-1      |
+|                             |            |                     |           |                    | (Rev.   |                       |            |                      |
+|                             |            |                     |           |                    | 7)      |                       |            |                      |
++-----------------------------+------------+---------------------+-----------+--------------------+---------+-----------------------+------------+----------------------+
+| bd_7cab_s00tr_0             | Up-to-date | No changes required |  *(26)    | SC                 | 1.0     | 1.0 (Rev. 8)          | Included   | xc7z020clg400-1      |
+|                             |            |                     |           | TRANSACTION_REGULA | (Rev.   |                       |            |                      |
+|                             |            |                     |           |                    | 8)      |                       |            |                      |
++-----------------------------+------------+---------------------+-----------+--------------------+---------+-----------------------+------------+----------------------+
+| bd_7cab_s01a2s_0            | Up-to-date | No changes required |  *(27)    | SmartConnect       | 1.0     | 1.0 (Rev. 7)          | Included   | xc7z020clg400-1      |
+|                             |            |                     |           | AXI2SC Bridge      | (Rev.   |                       |            |                      |
+|                             |            |                     |           |                    | 7)      |                       |            |                      |
++-----------------------------+------------+---------------------+-----------+--------------------+---------+-----------------------+------------+----------------------+
+| bd_7cab_s01mmu_0            | Up-to-date | No changes required |  *(28)    | SC MMU             | 1.0     | 1.0 (Rev. 7)          | Included   | xc7z020clg400-1      |
+|                             |            |                     |           |                    | (Rev.   |                       |            |                      |
+|                             |            |                     |           |                    | 7)      |                       |            |                      |
++-----------------------------+------------+---------------------+-----------+--------------------+---------+-----------------------+------------+----------------------+
+| bd_7cab_s01sic_0            | Up-to-date | No changes required |  *(29)    | SC SI_CONVERTER    | 1.0     | 1.0 (Rev. 7)          | Included   | xc7z020clg400-1      |
+|                             |            |                     |           |                    | (Rev.   |                       |            |                      |
+|                             |            |                     |           |                    | 7)      |                       |            |                      |
++-----------------------------+------------+---------------------+-----------+--------------------+---------+-----------------------+------------+----------------------+
+| bd_7cab_s01tr_0             | Up-to-date | No changes required |  *(30)    | SC                 | 1.0     | 1.0 (Rev. 8)          | Included   | xc7z020clg400-1      |
+|                             |            |                     |           | TRANSACTION_REGULA | (Rev.   |                       |            |                      |
+|                             |            |                     |           |                    | 8)      |                       |            |                      |
++-----------------------------+------------+---------------------+-----------+--------------------+---------+-----------------------+------------+----------------------+
+| bd_7cab_s02a2s_0            | Up-to-date | No changes required |  *(31)    | SmartConnect       | 1.0     | 1.0 (Rev. 7)          | Included   | xc7z020clg400-1      |
+|                             |            |                     |           | AXI2SC Bridge      | (Rev.   |                       |            |                      |
+|                             |            |                     |           |                    | 7)      |                       |            |                      |
++-----------------------------+------------+---------------------+-----------+--------------------+---------+-----------------------+------------+----------------------+
+| bd_7cab_s02mmu_0            | Up-to-date | No changes required |  *(32)    | SC MMU             | 1.0     | 1.0 (Rev. 7)          | Included   | xc7z020clg400-1      |
+|                             |            |                     |           |                    | (Rev.   |                       |            |                      |
+|                             |            |                     |           |                    | 7)      |                       |            |                      |
++-----------------------------+------------+---------------------+-----------+--------------------+---------+-----------------------+------------+----------------------+
+| bd_7cab_s02sic_0            | Up-to-date | No changes required |  *(33)    | SC SI_CONVERTER    | 1.0     | 1.0 (Rev. 7)          | Included   | xc7z020clg400-1      |
+|                             |            |                     |           |                    | (Rev.   |                       |            |                      |
+|                             |            |                     |           |                    | 7)      |                       |            |                      |
++-----------------------------+------------+---------------------+-----------+--------------------+---------+-----------------------+------------+----------------------+
+| bd_7cab_s02tr_0             | Up-to-date | No changes required |  *(34)    | SC                 | 1.0     | 1.0 (Rev. 8)          | Included   | xc7z020clg400-1      |
+|                             |            |                     |           | TRANSACTION_REGULA | (Rev.   |                       |            |                      |
+|                             |            |                     |           |                    | 8)      |                       |            |                      |
++-----------------------------+------------+---------------------+-----------+--------------------+---------+-----------------------+------------+----------------------+
+| bd_7cab_s03a2s_0            | Up-to-date | No changes required |  *(35)    | SmartConnect       | 1.0     | 1.0 (Rev. 7)          | Included   | xc7z020clg400-1      |
+|                             |            |                     |           | AXI2SC Bridge      | (Rev.   |                       |            |                      |
+|                             |            |                     |           |                    | 7)      |                       |            |                      |
++-----------------------------+------------+---------------------+-----------+--------------------+---------+-----------------------+------------+----------------------+
+| bd_7cab_s03mmu_0            | Up-to-date | No changes required |  *(36)    | SC MMU             | 1.0     | 1.0 (Rev. 7)          | Included   | xc7z020clg400-1      |
+|                             |            |                     |           |                    | (Rev.   |                       |            |                      |
+|                             |            |                     |           |                    | 7)      |                       |            |                      |
++-----------------------------+------------+---------------------+-----------+--------------------+---------+-----------------------+------------+----------------------+
+| bd_7cab_s03sic_0            | Up-to-date | No changes required |  *(37)    | SC SI_CONVERTER    | 1.0     | 1.0 (Rev. 7)          | Included   | xc7z020clg400-1      |
+|                             |            |                     |           |                    | (Rev.   |                       |            |                      |
+|                             |            |                     |           |                    | 7)      |                       |            |                      |
++-----------------------------+------------+---------------------+-----------+--------------------+---------+-----------------------+------------+----------------------+
+| bd_7cab_s03tr_0             | Up-to-date | No changes required |  *(38)    | SC                 | 1.0     | 1.0 (Rev. 8)          | Included   | xc7z020clg400-1      |
+|                             |            |                     |           | TRANSACTION_REGULA | (Rev.   |                       |            |                      |
+|                             |            |                     |           |                    | 8)      |                       |            |                      |
++-----------------------------+------------+---------------------+-----------+--------------------+---------+-----------------------+------------+----------------------+
+| bd_7cab_sarn_0              | Up-to-date | No changes required |  *(39)    | SmartConnect Node  | 1.0     | 1.0 (Rev. 10)         | Included   | xc7z020clg400-1      |
+|                             |            |                     |           |                    | (Rev.   |                       |            |                      |
+|                             |            |                     |           |                    | 10)     |                       |            |                      |
++-----------------------------+------------+---------------------+-----------+--------------------+---------+-----------------------+------------+----------------------+
+| bd_7cab_sarn_1              | Up-to-date | No changes required |  *(40)    | SmartConnect Node  | 1.0     | 1.0 (Rev. 10)         | Included   | xc7z020clg400-1      |
+|                             |            |                     |           |                    | (Rev.   |                       |            |                      |
+|                             |            |                     |           |                    | 10)     |                       |            |                      |
++-----------------------------+------------+---------------------+-----------+--------------------+---------+-----------------------+------------+----------------------+
+| bd_7cab_sawn_0              | Up-to-date | No changes required |  *(41)    | SmartConnect Node  | 1.0     | 1.0 (Rev. 10)         | Included   | xc7z020clg400-1      |
+|                             |            |                     |           |                    | (Rev.   |                       |            |                      |
+|                             |            |                     |           |                    | 10)     |                       |            |                      |
++-----------------------------+------------+---------------------+-----------+--------------------+---------+-----------------------+------------+----------------------+
+| bd_7cab_sawn_1              | Up-to-date | No changes required |  *(42)    | SmartConnect Node  | 1.0     | 1.0 (Rev. 10)         | Included   | xc7z020clg400-1      |
+|                             |            |                     |           |                    | (Rev.   |                       |            |                      |
+|                             |            |                     |           |                    | 10)     |                       |            |                      |
++-----------------------------+------------+---------------------+-----------+--------------------+---------+-----------------------+------------+----------------------+
+| bd_7cab_sbn_0               | Up-to-date | No changes required |  *(43)    | SmartConnect Node  | 1.0     | 1.0 (Rev. 10)         | Included   | xc7z020clg400-1      |
+|                             |            |                     |           |                    | (Rev.   |                       |            |                      |
+|                             |            |                     |           |                    | 10)     |                       |            |                      |
++-----------------------------+------------+---------------------+-----------+--------------------+---------+-----------------------+------------+----------------------+
+| bd_7cab_sbn_1               | Up-to-date | No changes required |  *(44)    | SmartConnect Node  | 1.0     | 1.0 (Rev. 10)         | Included   | xc7z020clg400-1      |
+|                             |            |                     |           |                    | (Rev.   |                       |            |                      |
+|                             |            |                     |           |                    | 10)     |                       |            |                      |
++-----------------------------+------------+---------------------+-----------+--------------------+---------+-----------------------+------------+----------------------+
+| bd_7cab_srn_0               | Up-to-date | No changes required |  *(45)    | SmartConnect Node  | 1.0     | 1.0 (Rev. 10)         | Included   | xc7z020clg400-1      |
+|                             |            |                     |           |                    | (Rev.   |                       |            |                      |
+|                             |            |                     |           |                    | 10)     |                       |            |                      |
++-----------------------------+------------+---------------------+-----------+--------------------+---------+-----------------------+------------+----------------------+
+| bd_7cab_srn_1               | Up-to-date | No changes required |  *(46)    | SmartConnect Node  | 1.0     | 1.0 (Rev. 10)         | Included   | xc7z020clg400-1      |
+|                             |            |                     |           |                    | (Rev.   |                       |            |                      |
+|                             |            |                     |           |                    | 10)     |                       |            |                      |
++-----------------------------+------------+---------------------+-----------+--------------------+---------+-----------------------+------------+----------------------+
+| bd_7cab_swn_0               | Up-to-date | No changes required |  *(47)    | SmartConnect Node  | 1.0     | 1.0 (Rev. 10)         | Included   | xc7z020clg400-1      |
+|                             |            |                     |           |                    | (Rev.   |                       |            |                      |
+|                             |            |                     |           |                    | 10)     |                       |            |                      |
++-----------------------------+------------+---------------------+-----------+--------------------+---------+-----------------------+------------+----------------------+
+| bd_7cab_swn_1               | Up-to-date | No changes required |  *(48)    | SmartConnect Node  | 1.0     | 1.0 (Rev. 10)         | Included   | xc7z020clg400-1      |
+|                             |            |                     |           |                    | (Rev.   |                       |            |                      |
+|                             |            |                     |           |                    | 10)     |                       |            |                      |
++-----------------------------+------------+---------------------+-----------+--------------------+---------+-----------------------+------------+----------------------+
+| bd_7cab_wsw_0               | Up-to-date | No changes required |  *(49)    | SmartConnect       | 1.0     | 1.0 (Rev. 6)          | Included   | xc7z020clg400-1      |
+|                             |            |                     |           | Switchboard        | (Rev.   |                       |            |                      |
+|                             |            |                     |           |                    | 6)      |                       |            |                      |
++-----------------------------+------------+---------------------+-----------+--------------------+---------+-----------------------+------------+----------------------+
+*(1) /home/bienso/fpga/Xilinx/Vivado/2018.3/data/ip/xilinx/smartconnect_v1_0/doc/smartconnect_v1_0_changelog.txt
+*(2) /home/bienso/fpga/Xilinx/Vivado/2018.3/data/ip/xilinx/axi_vdma_v6_3/doc/axi_vdma_v6_3_changelog.txt
+*(3) /home/bienso/fpga/Xilinx/Vivado/2018.3/data/ip/xilinx/axi_vdma_v6_3/doc/axi_vdma_v6_3_changelog.txt
+*(4) /home/bienso/fpga/Xilinx/Vivado/2018.3/data/ip/xilinx/processing_system7_v5_5/doc/processing_system7_v5_5_changelog.txt
+*(5) /home/bienso/fpga/Xilinx/Vivado/2018.3/data/ip/xilinx/axi_interconnect_v2_1/doc/axi_interconnect_v2_1_changelog.txt
+*(6) /home/bienso/fpga/Xilinx/Vivado/2018.3/data/ip/xilinx/proc_sys_reset_v5_0/doc/proc_sys_reset_v5_0_changelog.txt
+*(7) /home/bienso/fpga/Xilinx/Vivado/2018.3/data/ip/xilinx/v_axi4s_vid_out_v4_0/doc/v_axi4s_vid_out_v4_0_changelog.txt
+*(8) /home/bienso/fpga/Xilinx/Vivado/2018.3/data/ip/xilinx/v_tc_v6_1/doc/v_tc_v6_1_changelog.txt
+*(9) /home/bienso/fpga/Xilinx/Vivado/2018.3/data/ip/xilinx/v_vid_in_axi4s_v4_0/doc/v_vid_in_axi4s_v4_0_changelog.txt
+*(10) /home/bienso/fpga/Xilinx/Vivado/2018.3/data/ip/xilinx/sc_switchboard_v1_0/doc/sc_switchboard_v1_0_changelog.txt
+*(11) /home/bienso/fpga/Xilinx/Vivado/2018.3/data/ip/xilinx/sc_switchboard_v1_0/doc/sc_switchboard_v1_0_changelog.txt
+*(12) /home/bienso/fpga/Xilinx/Vivado/2018.3/data/ip/xilinx/sc_switchboard_v1_0/doc/sc_switchboard_v1_0_changelog.txt
+*(13) /home/bienso/fpga/Xilinx/Vivado/2018.3/data/ip/xilinx/sc_node_v1_0/doc/sc_node_v1_0_changelog.txt
+*(14) /home/bienso/fpga/Xilinx/Vivado/2018.3/data/ip/xilinx/sc_node_v1_0/doc/sc_node_v1_0_changelog.txt
+*(15) /home/bienso/fpga/Xilinx/Vivado/2018.3/data/ip/xilinx/sc_node_v1_0/doc/sc_node_v1_0_changelog.txt
+*(16) /home/bienso/fpga/Xilinx/Vivado/2018.3/data/ip/xilinx/sc_exit_v1_0/doc/sc_exit_v1_0_changelog.txt
+*(17) /home/bienso/fpga/Xilinx/Vivado/2018.3/data/ip/xilinx/sc_node_v1_0/doc/sc_node_v1_0_changelog.txt
+*(18) /home/bienso/fpga/Xilinx/Vivado/2018.3/data/ip/xilinx/sc_sc2axi_v1_0/doc/sc_sc2axi_v1_0_changelog.txt
+*(19) /home/bienso/fpga/Xilinx/Vivado/2018.3/data/ip/xilinx/sc_node_v1_0/doc/sc_node_v1_0_changelog.txt
+*(20) /home/bienso/fpga/Xilinx/Vivado/2018.3/data/ip/xilinx/xlconstant_v1_1/doc/xlconstant_v1_1_changelog.txt
+*(21) /home/bienso/fpga/Xilinx/Vivado/2018.3/data/ip/xilinx/proc_sys_reset_v5_0/doc/proc_sys_reset_v5_0_changelog.txt
+*(22) /home/bienso/fpga/Xilinx/Vivado/2018.3/data/ip/xilinx/sc_switchboard_v1_0/doc/sc_switchboard_v1_0_changelog.txt
+*(23) /home/bienso/fpga/Xilinx/Vivado/2018.3/data/ip/xilinx/sc_axi2sc_v1_0/doc/sc_axi2sc_v1_0_changelog.txt
+*(24) /home/bienso/fpga/Xilinx/Vivado/2018.3/data/ip/xilinx/sc_mmu_v1_0/doc/sc_mmu_v1_0_changelog.txt
+*(25) /home/bienso/fpga/Xilinx/Vivado/2018.3/data/ip/xilinx/sc_si_converter_v1_0/doc/sc_si_converter_v1_0_changelog.txt
+*(26) /home/bienso/fpga/Xilinx/Vivado/2018.3/data/ip/xilinx/sc_transaction_regulator_v1_0/doc/sc_transaction_regulator_v1_0_changelog.txt
+*(27) /home/bienso/fpga/Xilinx/Vivado/2018.3/data/ip/xilinx/sc_axi2sc_v1_0/doc/sc_axi2sc_v1_0_changelog.txt
+*(28) /home/bienso/fpga/Xilinx/Vivado/2018.3/data/ip/xilinx/sc_mmu_v1_0/doc/sc_mmu_v1_0_changelog.txt
+*(29) /home/bienso/fpga/Xilinx/Vivado/2018.3/data/ip/xilinx/sc_si_converter_v1_0/doc/sc_si_converter_v1_0_changelog.txt
+*(30) /home/bienso/fpga/Xilinx/Vivado/2018.3/data/ip/xilinx/sc_transaction_regulator_v1_0/doc/sc_transaction_regulator_v1_0_changelog.txt
+*(31) /home/bienso/fpga/Xilinx/Vivado/2018.3/data/ip/xilinx/sc_axi2sc_v1_0/doc/sc_axi2sc_v1_0_changelog.txt
+*(32) /home/bienso/fpga/Xilinx/Vivado/2018.3/data/ip/xilinx/sc_mmu_v1_0/doc/sc_mmu_v1_0_changelog.txt
+*(33) /home/bienso/fpga/Xilinx/Vivado/2018.3/data/ip/xilinx/sc_si_converter_v1_0/doc/sc_si_converter_v1_0_changelog.txt
+*(34) /home/bienso/fpga/Xilinx/Vivado/2018.3/data/ip/xilinx/sc_transaction_regulator_v1_0/doc/sc_transaction_regulator_v1_0_changelog.txt
+*(35) /home/bienso/fpga/Xilinx/Vivado/2018.3/data/ip/xilinx/sc_axi2sc_v1_0/doc/sc_axi2sc_v1_0_changelog.txt
+*(36) /home/bienso/fpga/Xilinx/Vivado/2018.3/data/ip/xilinx/sc_mmu_v1_0/doc/sc_mmu_v1_0_changelog.txt
+*(37) /home/bienso/fpga/Xilinx/Vivado/2018.3/data/ip/xilinx/sc_si_converter_v1_0/doc/sc_si_converter_v1_0_changelog.txt
+*(38) /home/bienso/fpga/Xilinx/Vivado/2018.3/data/ip/xilinx/sc_transaction_regulator_v1_0/doc/sc_transaction_regulator_v1_0_changelog.txt
+*(39) /home/bienso/fpga/Xilinx/Vivado/2018.3/data/ip/xilinx/sc_node_v1_0/doc/sc_node_v1_0_changelog.txt
+*(40) /home/bienso/fpga/Xilinx/Vivado/2018.3/data/ip/xilinx/sc_node_v1_0/doc/sc_node_v1_0_changelog.txt
+*(41) /home/bienso/fpga/Xilinx/Vivado/2018.3/data/ip/xilinx/sc_node_v1_0/doc/sc_node_v1_0_changelog.txt
+*(42) /home/bienso/fpga/Xilinx/Vivado/2018.3/data/ip/xilinx/sc_node_v1_0/doc/sc_node_v1_0_changelog.txt
+*(43) /home/bienso/fpga/Xilinx/Vivado/2018.3/data/ip/xilinx/sc_node_v1_0/doc/sc_node_v1_0_changelog.txt
+*(44) /home/bienso/fpga/Xilinx/Vivado/2018.3/data/ip/xilinx/sc_node_v1_0/doc/sc_node_v1_0_changelog.txt
+*(45) /home/bienso/fpga/Xilinx/Vivado/2018.3/data/ip/xilinx/sc_node_v1_0/doc/sc_node_v1_0_changelog.txt
+*(46) /home/bienso/fpga/Xilinx/Vivado/2018.3/data/ip/xilinx/sc_node_v1_0/doc/sc_node_v1_0_changelog.txt
+*(47) /home/bienso/fpga/Xilinx/Vivado/2018.3/data/ip/xilinx/sc_node_v1_0/doc/sc_node_v1_0_changelog.txt
+*(48) /home/bienso/fpga/Xilinx/Vivado/2018.3/data/ip/xilinx/sc_node_v1_0/doc/sc_node_v1_0_changelog.txt
+*(49) /home/bienso/fpga/Xilinx/Vivado/2018.3/data/ip/xilinx/sc_switchboard_v1_0/doc/sc_switchboard_v1_0_changelog.txt
+
+
+reset_run synth_1
+get_runs *v_tc*
+zynq_v_tc_0_0_synth_1 zynq_v_tc_0_0_impl_1
+reset_run zynq_v_tc_0_0_synth_1
+launch_runs synth_1 -jobs 4
+INFO: [IP_Flow 19-4993] Using cached IP synthesis design for IP zynq_auto_pc_0, cache-ID = e393c86e85f30df9; cache size = 160.658 MB.
+INFO: [IP_Flow 19-4993] Using cached IP synthesis design for IP zynq_rst_ps7_0_100M_0, cache-ID = 3ba4c99e7a8ee506; cache size = 160.657 MB.
+INFO: [IP_Flow 19-4993] Using cached IP synthesis design for IP zynq_xbar_0, cache-ID = 0c63aa320da1772f; cache size = 160.658 MB.
+INFO: [IP_Flow 19-4993] Using cached IP synthesis design for IP zynq_processing_system7_0_0, cache-ID = 7de0a55b0c1052e9; cache size = 160.657 MB.
+INFO: [IP_Flow 19-4993] Using cached IP synthesis design for IP zynq_v_axi4s_vid_out_0_0, cache-ID = 4e6e7528a149a542; cache size = 160.658 MB.
+INFO: [IP_Flow 19-4993] Using cached IP synthesis design for IP zynq_gaussian_blur_3x3_0_0, cache-ID = fa7d523d2b540e96; cache size = 160.657 MB.
+INFO: [IP_Flow 19-4993] Using cached IP synthesis design for IP zynq_v_vid_in_axi4s_0_0, cache-ID = 1e28f47cc31b0c08; cache size = 160.658 MB.
+INFO: [IP_Flow 19-4993] Using cached IP synthesis design for IP zynq_axi_dynclk_0_0, cache-ID = 9689b6fc410f9cf1; cache size = 160.657 MB.
+INFO: [IP_Flow 19-4993] Using cached IP synthesis design for IP zynq_axi_vdma_0_0, cache-ID = 54eae84ab46bf6b7; cache size = 160.657 MB.
+INFO: [IP_Flow 19-4993] Using cached IP synthesis design for IP zynq_axi_vdma_roi_0_0, cache-ID = 9da56dbe8cb01e9e; cache size = 160.657 MB.
+INFO: [IP_Flow 19-4993] Using cached IP synthesis design for IP zynq_v_tc_0_0, cache-ID = 1ccdef19d84dc036; cache size = 160.658 MB.
+INFO: [IP_Flow 19-4993] Using cached IP synthesis design for IP zynq_otsu_threshold_0_0, cache-ID = 059ed66638b285fe; cache size = 160.658 MB.
+INFO: [IP_Flow 19-4993] Using cached IP synthesis design for IP zynq_morphological_open_0_0, cache-ID = 0e0082b116ec4586; cache size = 160.657 MB.
+INFO: [IP_Flow 19-4993] Using cached IP synthesis design for IP zynq_tft_lcd_0_0, cache-ID = c0346685655066b2; cache size = 160.658 MB.
+INFO: [IP_Flow 19-4993] Using cached IP synthesis design for IP zynq_ov7725_data_0_0, cache-ID = ae95095a90daf1f2; cache size = 160.658 MB.
+[Thu Sep  3 20:36:55 2026] Launched zynq_axis_24to8_0_1_synth_1, zynq_axis_8to24_0_0_synth_1, zynq_axi_smc_0_synth_1, zynq_v_tc_0_0_synth_1...
+Run output will be captured here:
+zynq_axis_24to8_0_1_synth_1: /home/bienso/Videos/22_ov7725_lcd_test/22_ov7725_lcd/ov7725_lcd/ov7725_lcd.runs/zynq_axis_24to8_0_1_synth_1/runme.log
+zynq_axis_8to24_0_0_synth_1: /home/bienso/Videos/22_ov7725_lcd_test/22_ov7725_lcd/ov7725_lcd/ov7725_lcd.runs/zynq_axis_8to24_0_0_synth_1/runme.log
+zynq_axi_smc_0_synth_1: /home/bienso/Videos/22_ov7725_lcd_test/22_ov7725_lcd/ov7725_lcd/ov7725_lcd.runs/zynq_axi_smc_0_synth_1/runme.log
+zynq_v_tc_0_0_synth_1: /home/bienso/Videos/22_ov7725_lcd_test/22_ov7725_lcd/ov7725_lcd/ov7725_lcd.runs/zynq_v_tc_0_0_synth_1/runme.log
+[Thu Sep  3 20:36:55 2026] Launched synth_1...
+Run output will be captured here: /home/bienso/Videos/22_ov7725_lcd_test/22_ov7725_lcd/ov7725_lcd/ov7725_lcd.runs/synth_1/runme.log
+launch_runs: Time (s): cpu = 00:00:16 ; elapsed = 00:00:08 . Memory (MB): peak = 7262.445 ; gain = 0.000 ; free physical = 6468 ; free virtual = 12357
+0
+get_ips *v_tc*
+zynq_v_tc_0_0
+get_property IPDEF [get_ips zynq_v_tc_0_0]
+xilinx.com:ip:v_tc:6.1
+report_ip_status
+Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2018.3 (lin64) Build 2405991 Thu Dec  6 23:36:41 MST 2018
+| Date         : Thu Sep  3 20:42:22 2026
+| Host         : bienso running 64-bit Ubuntu 18.04.6 LTS
+| Command      : report_ip_status
+------------------------------------------------------------------------------------
+
+IP Status Summary
+
+1. Project IP Status
+--------------------
+Your project uses 58 IP. Some of these IP may have undergone changes in this release of the software. Please review the recommended actions.
+
+More information on the Xilinx versioning policy is available at www.xilinx.com.
+
+Project IP Instances
++-----------------------------+------------+---------------------+-----------+--------------------+---------+-----------------------+------------+----------------------+
+| Instance Name               | Status     | Recommendation      | Change    | IP Name            | IP      | New Version           | New        | Original Part        |
+|                             |            |                     | Log       |                    | Version |                       | License    |                      |
++-----------------------------+------------+---------------------+-----------+--------------------+---------+-----------------------+------------+----------------------+
+| gaussian_blur_3x3_0         | Up-to-date | No changes required | Change    | Gaussian_blur_3x3  | 1.0     | 1.0 (Rev. 2114739454) | Included   | xc7z020clg400-1      |
+|                             |            |                     | Log not   |                    | (Rev.   |                       |            |                      |
+|                             |            |                     | available |                    | 2114739 |                       |            |                      |
++-----------------------------+------------+---------------------+-----------+--------------------+---------+-----------------------+------------+----------------------+
+| zynq_axi_dynclk_0_0         | Up-to-date | No changes required | Change    | Dynamic Clock      | 1.0     | 1.0 (Rev. 4)          | Included   | xc7z020clg400-1      |
+|                             |            |                     | Log not   | Generator          | (Rev.   |                       |            |                      |
+|                             |            |                     | available |                    | 4)      |                       |            |                      |
++-----------------------------+------------+---------------------+-----------+--------------------+---------+-----------------------+------------+----------------------+
+| zynq_axi_smc_0              | Up-to-date | No changes required |  *(1)     | AXI SmartConnect   | 1.0     | 1.0 (Rev. 10)         | Included   | xc7z020clg400-1      |
+|                             |            |                     |           |                    | (Rev.   |                       |            |                      |
+|                             |            |                     |           |                    | 10)     |                       |            |                      |
++-----------------------------+------------+---------------------+-----------+--------------------+---------+-----------------------+------------+----------------------+
+| zynq_axi_vdma_0_0           | Up-to-date | No changes required |  *(2)     | AXI Video Direct   | 6.3     | 6.3 (Rev. 6)          | Included   | xc7z020clg400-1      |
+|                             |            |                     |           | Memory Access      | (Rev.   |                       |            |                      |
+|                             |            |                     |           |                    | 6)      |                       |            |                      |
++-----------------------------+------------+---------------------+-----------+--------------------+---------+-----------------------+------------+----------------------+
+| zynq_axi_vdma_roi_0_0       | Up-to-date | No changes required |  *(3)     | AXI Video Direct   | 6.3     | 6.3 (Rev. 6)          | Included   | xc7z020clg400-1      |
+|                             |            |                     |           | Memory Access      | (Rev.   |                       |            |                      |
+|                             |            |                     |           |                    | 6)      |                       |            |                      |
++-----------------------------+------------+---------------------+-----------+--------------------+---------+-----------------------+------------+----------------------+
+| zynq_axis_24to8_0_1         | Up-to-date | No changes required | Change    | axis_24to8_v1_0    | 1.0     | 1.0 (Rev. 1)          | Included   | xc7z020clg400-1      |
+|                             |            |                     | Log not   |                    | (Rev.   |                       |            |                      |
+|                             |            |                     | available |                    | 1)      |                       |            |                      |
++-----------------------------+------------+---------------------+-----------+--------------------+---------+-----------------------+------------+----------------------+
+| zynq_axis_8to24_0_0         | Up-to-date | No changes required | Change    | axis_8to24_v1_0    | 1.0     | 1.0 (Rev. 1)          | Included   | xc7z020clg400-1      |
+|                             |            |                     | Log not   |                    | (Rev.   |                       |            |                      |
+|                             |            |                     | available |                    | 1)      |                       |            |                      |
++-----------------------------+------------+---------------------+-----------+--------------------+---------+-----------------------+------------+----------------------+
+| zynq_gaussian_blur_3x3_0_0  | Up-to-date | No changes required | Change    | Gaussian_blur_3x3  | 1.0     | 1.0 (Rev. 2114739454) | Included   | xc7z020clg400-1      |
+|                             |            |                     | Log not   |                    | (Rev.   |                       |            |                      |
+|                             |            |                     | available |                    | 2114739 |                       |            |                      |
++-----------------------------+------------+---------------------+-----------+--------------------+---------+-----------------------+------------+----------------------+
+| zynq_morphological_open_0_0 | Up-to-date | No changes required | Change    | Morphological_open | 1.0     | 1.0 (Rev. 2114739456) | Included   | xc7z020clg400-1      |
+|                             |            |                     | Log not   |                    | (Rev.   |                       |            |                      |
+|                             |            |                     | available |                    | 2114739 |                       |            |                      |
++-----------------------------+------------+---------------------+-----------+--------------------+---------+-----------------------+------------+----------------------+
+| zynq_otsu_threshold_0_0     | Up-to-date | No changes required | Change    | Otsu_threshold     | 1.0     | 1.0 (Rev. 2114739455) | Included   | xc7z020clg400-1      |
+|                             |            |                     | Log not   |                    | (Rev.   |                       |            |                      |
+|                             |            |                     | available |                    | 2114739 |                       |            |                      |
++-----------------------------+------------+---------------------+-----------+--------------------+---------+-----------------------+------------+----------------------+
+| zynq_ov7725_data_0_0        | Up-to-date | No changes required | Change    | ov7725_data_v1.0   | 1.0     | 1.0 (Rev. 16)         | Included   | xc7z020clg400-1      |
+|                             |            |                     | Log not   |                    | (Rev.   |                       |            |                      |
+|                             |            |                     | available |                    | 16)     |                       |            |                      |
++-----------------------------+------------+---------------------+-----------+--------------------+---------+-----------------------+------------+----------------------+
+| zynq_processing_system7_0_0 | Up-to-date | No changes required |  *(4)     | ZYNQ7 Processing   | 5.5     | 5.5 (Rev. 6)          | Included   | xc7z020clg400-1      |
+|                             |            |                     |           | System             | (Rev.   |                       |            |                      |
+|                             |            |                     |           |                    | 6)      |                       |            |                      |
++-----------------------------+------------+---------------------+-----------+--------------------+---------+-----------------------+------------+----------------------+
+| zynq_ps7_0_axi_periph_0     | Up-to-date | No changes required |  *(5)     | AXI Interconnect   | 2.1     | 2.1 (Rev. 19)         | Included   | xc7z020clg400-1      |
+|                             |            |                     |           |                    | (Rev.   |                       |            |                      |
+|                             |            |                     |           |                    | 19)     |                       |            |                      |
++-----------------------------+------------+---------------------+-----------+--------------------+---------+-----------------------+------------+----------------------+
+| zynq_rst_ps7_0_100M_0       | Up-to-date | No changes required |  *(6)     | Processor System   | 5.0     | 5.0 (Rev. 13)         | Included   | xc7z020clg400-1      |
+|                             |            |                     |           | Reset              | (Rev.   |                       |            |                      |
+|                             |            |                     |           |                    | 13)     |                       |            |                      |
++-----------------------------+------------+---------------------+-----------+--------------------+---------+-----------------------+------------+----------------------+
+| zynq_tft_lcd_0_0            | Up-to-date | No changes required | Change    | tft_lcd_v1.0       | 1.0     | 1.0 (Rev. 8)          | Included   | xc7z020clg400-1      |
+|                             |            |                     | Log not   |                    | (Rev.   |                       |            |                      |
+|                             |            |                     | available |                    | 8)      |                       |            |                      |
++-----------------------------+------------+---------------------+-----------+--------------------+---------+-----------------------+------------+----------------------+
+| zynq_v_axi4s_vid_out_0_0    | Up-to-date | No changes required |  *(7)     | AXI4-Stream to     | 4.0     | 4.0 (Rev. 10)         | Included   | xc7z020clg400-1      |
+|                             |            |                     |           | Video Out          | (Rev.   |                       |            |                      |
+|                             |            |                     |           |                    | 10)     |                       |            |                      |
++-----------------------------+------------+---------------------+-----------+--------------------+---------+-----------------------+------------+----------------------+
+| zynq_v_tc_0_0               | Up-to-date | No changes required |  *(8)     | Video Timing       | 6.1     | 6.1 (Rev. 13)         | Included   | xc7z020clg400-1      |
+|                             |            |                     |           | Controller         | (Rev.   |                       |            |                      |
+|                             |            |                     |           |                    | 13)     |                       |            |                      |
++-----------------------------+------------+---------------------+-----------+--------------------+---------+-----------------------+------------+----------------------+
+| zynq_v_vid_in_axi4s_0_0     | Up-to-date | No changes required |  *(9)     | Video In to        | 4.0     | 4.0 (Rev. 9)          | Included   | xc7z020clg400-1      |
+|                             |            |                     |           | AXI4-Stream        | (Rev.   |                       |            |                      |
+|                             |            |                     |           |                    | 9)      |                       |            |                      |
++-----------------------------+------------+---------------------+-----------+--------------------+---------+-----------------------+------------+----------------------+
+| bd_7cab_arsw_0              | Up-to-date | No changes required |  *(10)    | SmartConnect       | 1.0     | 1.0 (Rev. 6)          | Included   | xc7z020clg400-1      |
+|                             |            |                     |           | Switchboard        | (Rev.   |                       |            |                      |
+|                             |            |                     |           |                    | 6)      |                       |            |                      |
++-----------------------------+------------+---------------------+-----------+--------------------+---------+-----------------------+------------+----------------------+
+| bd_7cab_awsw_0              | Up-to-date | No changes required |  *(11)    | SmartConnect       | 1.0     | 1.0 (Rev. 6)          | Included   | xc7z020clg400-1      |
+|                             |            |                     |           | Switchboard        | (Rev.   |                       |            |                      |
+|                             |            |                     |           |                    | 6)      |                       |            |                      |
++-----------------------------+------------+---------------------+-----------+--------------------+---------+-----------------------+------------+----------------------+
+| bd_7cab_bsw_0               | Up-to-date | No changes required |  *(12)    | SmartConnect       | 1.0     | 1.0 (Rev. 6)          | Included   | xc7z020clg400-1      |
+|                             |            |                     |           | Switchboard        | (Rev.   |                       |            |                      |
+|                             |            |                     |           |                    | 6)      |                       |            |                      |
++-----------------------------+------------+---------------------+-----------+--------------------+---------+-----------------------+------------+----------------------+
+| bd_7cab_m00arn_0            | Up-to-date | No changes required |  *(13)    | SmartConnect Node  | 1.0     | 1.0 (Rev. 10)         | Included   | xc7z020clg400-1      |
+|                             |            |                     |           |                    | (Rev.   |                       |            |                      |
+|                             |            |                     |           |                    | 10)     |                       |            |                      |
++-----------------------------+------------+---------------------+-----------+--------------------+---------+-----------------------+------------+----------------------+
+| bd_7cab_m00awn_0            | Up-to-date | No changes required |  *(14)    | SmartConnect Node  | 1.0     | 1.0 (Rev. 10)         | Included   | xc7z020clg400-1      |
+|                             |            |                     |           |                    | (Rev.   |                       |            |                      |
+|                             |            |                     |           |                    | 10)     |                       |            |                      |
++-----------------------------+------------+---------------------+-----------+--------------------+---------+-----------------------+------------+----------------------+
+| bd_7cab_m00bn_0             | Up-to-date | No changes required |  *(15)    | SmartConnect Node  | 1.0     | 1.0 (Rev. 10)         | Included   | xc7z020clg400-1      |
+|                             |            |                     |           |                    | (Rev.   |                       |            |                      |
+|                             |            |                     |           |                    | 10)     |                       |            |                      |
++-----------------------------+------------+---------------------+-----------+--------------------+---------+-----------------------+------------+----------------------+
+| bd_7cab_m00e_0              | Up-to-date | No changes required |  *(16)    | SC EXIT            | 1.0     | 1.0 (Rev. 8)          | Included   | xc7z020clg400-1      |
+|                             |            |                     |           |                    | (Rev.   |                       |            |                      |
+|                             |            |                     |           |                    | 8)      |                       |            |                      |
++-----------------------------+------------+---------------------+-----------+--------------------+---------+-----------------------+------------+----------------------+
+| bd_7cab_m00rn_0             | Up-to-date | No changes required |  *(17)    | SmartConnect Node  | 1.0     | 1.0 (Rev. 10)         | Included   | xc7z020clg400-1      |
+|                             |            |                     |           |                    | (Rev.   |                       |            |                      |
+|                             |            |                     |           |                    | 10)     |                       |            |                      |
++-----------------------------+------------+---------------------+-----------+--------------------+---------+-----------------------+------------+----------------------+
+| bd_7cab_m00s2a_0            | Up-to-date | No changes required |  *(18)    | SmartConnect       | 1.0     | 1.0 (Rev. 7)          | Included   | xc7z020clg400-1      |
+|                             |            |                     |           | SC2AXI Bridge      | (Rev.   |                       |            |                      |
+|                             |            |                     |           |                    | 7)      |                       |            |                      |
++-----------------------------+------------+---------------------+-----------+--------------------+---------+-----------------------+------------+----------------------+
+| bd_7cab_m00wn_0             | Up-to-date | No changes required |  *(19)    | SmartConnect Node  | 1.0     | 1.0 (Rev. 10)         | Included   | xc7z020clg400-1      |
+|                             |            |                     |           |                    | (Rev.   |                       |            |                      |
+|                             |            |                     |           |                    | 10)     |                       |            |                      |
++-----------------------------+------------+---------------------+-----------+--------------------+---------+-----------------------+------------+----------------------+
+| bd_7cab_one_0               | Up-to-date | No changes required |  *(20)    | Constant           | 1.1     | 1.1 (Rev. 5)          | Included   | xc7z020clg400-1      |
+|                             |            |                     |           |                    | (Rev.   |                       |            |                      |
+|                             |            |                     |           |                    | 5)      |                       |            |                      |
++-----------------------------+------------+---------------------+-----------+--------------------+---------+-----------------------+------------+----------------------+
+| bd_7cab_psr_aclk_0          | Up-to-date | No changes required |  *(21)    | Processor System   | 5.0     | 5.0 (Rev. 13)         | Included   | xc7z020clg400-1      |
+|                             |            |                     |           | Reset              | (Rev.   |                       |            |                      |
+|                             |            |                     |           |                    | 13)     |                       |            |                      |
++-----------------------------+------------+---------------------+-----------+--------------------+---------+-----------------------+------------+----------------------+
+| bd_7cab_rsw_0               | Up-to-date | No changes required |  *(22)    | SmartConnect       | 1.0     | 1.0 (Rev. 6)          | Included   | xc7z020clg400-1      |
+|                             |            |                     |           | Switchboard        | (Rev.   |                       |            |                      |
+|                             |            |                     |           |                    | 6)      |                       |            |                      |
++-----------------------------+------------+---------------------+-----------+--------------------+---------+-----------------------+------------+----------------------+
+| bd_7cab_s00a2s_0            | Up-to-date | No changes required |  *(23)    | SmartConnect       | 1.0     | 1.0 (Rev. 7)          | Included   | xc7z020clg400-1      |
+|                             |            |                     |           | AXI2SC Bridge      | (Rev.   |                       |            |                      |
+|                             |            |                     |           |                    | 7)      |                       |            |                      |
++-----------------------------+------------+---------------------+-----------+--------------------+---------+-----------------------+------------+----------------------+
+| bd_7cab_s00mmu_0            | Up-to-date | No changes required |  *(24)    | SC MMU             | 1.0     | 1.0 (Rev. 7)          | Included   | xc7z020clg400-1      |
+|                             |            |                     |           |                    | (Rev.   |                       |            |                      |
+|                             |            |                     |           |                    | 7)      |                       |            |                      |
++-----------------------------+------------+---------------------+-----------+--------------------+---------+-----------------------+------------+----------------------+
+| bd_7cab_s00sic_0            | Up-to-date | No changes required |  *(25)    | SC SI_CONVERTER    | 1.0     | 1.0 (Rev. 7)          | Included   | xc7z020clg400-1      |
+|                             |            |                     |           |                    | (Rev.   |                       |            |                      |
+|                             |            |                     |           |                    | 7)      |                       |            |                      |
++-----------------------------+------------+---------------------+-----------+--------------------+---------+-----------------------+------------+----------------------+
+| bd_7cab_s00tr_0             | Up-to-date | No changes required |  *(26)    | SC                 | 1.0     | 1.0 (Rev. 8)          | Included   | xc7z020clg400-1      |
+|                             |            |                     |           | TRANSACTION_REGULA | (Rev.   |                       |            |                      |
+|                             |            |                     |           |                    | 8)      |                       |            |                      |
++-----------------------------+------------+---------------------+-----------+--------------------+---------+-----------------------+------------+----------------------+
+| bd_7cab_s01a2s_0            | Up-to-date | No changes required |  *(27)    | SmartConnect       | 1.0     | 1.0 (Rev. 7)          | Included   | xc7z020clg400-1      |
+|                             |            |                     |           | AXI2SC Bridge      | (Rev.   |                       |            |                      |
+|                             |            |                     |           |                    | 7)      |                       |            |                      |
++-----------------------------+------------+---------------------+-----------+--------------------+---------+-----------------------+------------+----------------------+
+| bd_7cab_s01mmu_0            | Up-to-date | No changes required |  *(28)    | SC MMU             | 1.0     | 1.0 (Rev. 7)          | Included   | xc7z020clg400-1      |
+|                             |            |                     |           |                    | (Rev.   |                       |            |                      |
+|                             |            |                     |           |                    | 7)      |                       |            |                      |
++-----------------------------+------------+---------------------+-----------+--------------------+---------+-----------------------+------------+----------------------+
+| bd_7cab_s01sic_0            | Up-to-date | No changes required |  *(29)    | SC SI_CONVERTER    | 1.0     | 1.0 (Rev. 7)          | Included   | xc7z020clg400-1      |
+|                             |            |                     |           |                    | (Rev.   |                       |            |                      |
+|                             |            |                     |           |                    | 7)      |                       |            |                      |
++-----------------------------+------------+---------------------+-----------+--------------------+---------+-----------------------+------------+----------------------+
+| bd_7cab_s01tr_0             | Up-to-date | No changes required |  *(30)    | SC                 | 1.0     | 1.0 (Rev. 8)          | Included   | xc7z020clg400-1      |
+|                             |            |                     |           | TRANSACTION_REGULA | (Rev.   |                       |            |                      |
+|                             |            |                     |           |                    | 8)      |                       |            |                      |
++-----------------------------+------------+---------------------+-----------+--------------------+---------+-----------------------+------------+----------------------+
+| bd_7cab_s02a2s_0            | Up-to-date | No changes required |  *(31)    | SmartConnect       | 1.0     | 1.0 (Rev. 7)          | Included   | xc7z020clg400-1      |
+|                             |            |                     |           | AXI2SC Bridge      | (Rev.   |                       |            |                      |
+|                             |            |                     |           |                    | 7)      |                       |            |                      |
++-----------------------------+------------+---------------------+-----------+--------------------+---------+-----------------------+------------+----------------------+
+| bd_7cab_s02mmu_0            | Up-to-date | No changes required |  *(32)    | SC MMU             | 1.0     | 1.0 (Rev. 7)          | Included   | xc7z020clg400-1      |
+|                             |            |                     |           |                    | (Rev.   |                       |            |                      |
+|                             |            |                     |           |                    | 7)      |                       |            |                      |
++-----------------------------+------------+---------------------+-----------+--------------------+---------+-----------------------+------------+----------------------+
+| bd_7cab_s02sic_0            | Up-to-date | No changes required |  *(33)    | SC SI_CONVERTER    | 1.0     | 1.0 (Rev. 7)          | Included   | xc7z020clg400-1      |
+|                             |            |                     |           |                    | (Rev.   |                       |            |                      |
+|                             |            |                     |           |                    | 7)      |                       |            |                      |
++-----------------------------+------------+---------------------+-----------+--------------------+---------+-----------------------+------------+----------------------+
+| bd_7cab_s02tr_0             | Up-to-date | No changes required |  *(34)    | SC                 | 1.0     | 1.0 (Rev. 8)          | Included   | xc7z020clg400-1      |
+|                             |            |                     |           | TRANSACTION_REGULA | (Rev.   |                       |            |                      |
+|                             |            |                     |           |                    | 8)      |                       |            |                      |
++-----------------------------+------------+---------------------+-----------+--------------------+---------+-----------------------+------------+----------------------+
+| bd_7cab_s03a2s_0            | Up-to-date | No changes required |  *(35)    | SmartConnect       | 1.0     | 1.0 (Rev. 7)          | Included   | xc7z020clg400-1      |
+|                             |            |                     |           | AXI2SC Bridge      | (Rev.   |                       |            |                      |
+|                             |            |                     |           |                    | 7)      |                       |            |                      |
++-----------------------------+------------+---------------------+-----------+--------------------+---------+-----------------------+------------+----------------------+
+| bd_7cab_s03mmu_0            | Up-to-date | No changes required |  *(36)    | SC MMU             | 1.0     | 1.0 (Rev. 7)          | Included   | xc7z020clg400-1      |
+|                             |            |                     |           |                    | (Rev.   |                       |            |                      |
+|                             |            |                     |           |                    | 7)      |                       |            |                      |
++-----------------------------+------------+---------------------+-----------+--------------------+---------+-----------------------+------------+----------------------+
+| bd_7cab_s03sic_0            | Up-to-date | No changes required |  *(37)    | SC SI_CONVERTER    | 1.0     | 1.0 (Rev. 7)          | Included   | xc7z020clg400-1      |
+|                             |            |                     |           |                    | (Rev.   |                       |            |                      |
+|                             |            |                     |           |                    | 7)      |                       |            |                      |
++-----------------------------+------------+---------------------+-----------+--------------------+---------+-----------------------+------------+----------------------+
+| bd_7cab_s03tr_0             | Up-to-date | No changes required |  *(38)    | SC                 | 1.0     | 1.0 (Rev. 8)          | Included   | xc7z020clg400-1      |
+|                             |            |                     |           | TRANSACTION_REGULA | (Rev.   |                       |            |                      |
+|                             |            |                     |           |                    | 8)      |                       |            |                      |
++-----------------------------+------------+---------------------+-----------+--------------------+---------+-----------------------+------------+----------------------+
+| bd_7cab_sarn_0              | Up-to-date | No changes required |  *(39)    | SmartConnect Node  | 1.0     | 1.0 (Rev. 10)         | Included   | xc7z020clg400-1      |
+|                             |            |                     |           |                    | (Rev.   |                       |            |                      |
+|                             |            |                     |           |                    | 10)     |                       |            |                      |
++-----------------------------+------------+---------------------+-----------+--------------------+---------+-----------------------+------------+----------------------+
+| bd_7cab_sarn_1              | Up-to-date | No changes required |  *(40)    | SmartConnect Node  | 1.0     | 1.0 (Rev. 10)         | Included   | xc7z020clg400-1      |
+|                             |            |                     |           |                    | (Rev.   |                       |            |                      |
+|                             |            |                     |           |                    | 10)     |                       |            |                      |
++-----------------------------+------------+---------------------+-----------+--------------------+---------+-----------------------+------------+----------------------+
+| bd_7cab_sawn_0              | Up-to-date | No changes required |  *(41)    | SmartConnect Node  | 1.0     | 1.0 (Rev. 10)         | Included   | xc7z020clg400-1      |
+|                             |            |                     |           |                    | (Rev.   |                       |            |                      |
+|                             |            |                     |           |                    | 10)     |                       |            |                      |
++-----------------------------+------------+---------------------+-----------+--------------------+---------+-----------------------+------------+----------------------+
+| bd_7cab_sawn_1              | Up-to-date | No changes required |  *(42)    | SmartConnect Node  | 1.0     | 1.0 (Rev. 10)         | Included   | xc7z020clg400-1      |
+|                             |            |                     |           |                    | (Rev.   |                       |            |                      |
+|                             |            |                     |           |                    | 10)     |                       |            |                      |
++-----------------------------+------------+---------------------+-----------+--------------------+---------+-----------------------+------------+----------------------+
+| bd_7cab_sbn_0               | Up-to-date | No changes required |  *(43)    | SmartConnect Node  | 1.0     | 1.0 (Rev. 10)         | Included   | xc7z020clg400-1      |
+|                             |            |                     |           |                    | (Rev.   |                       |            |                      |
+|                             |            |                     |           |                    | 10)     |                       |            |                      |
++-----------------------------+------------+---------------------+-----------+--------------------+---------+-----------------------+------------+----------------------+
+| bd_7cab_sbn_1               | Up-to-date | No changes required |  *(44)    | SmartConnect Node  | 1.0     | 1.0 (Rev. 10)         | Included   | xc7z020clg400-1      |
+|                             |            |                     |           |                    | (Rev.   |                       |            |                      |
+|                             |            |                     |           |                    | 10)     |                       |            |                      |
++-----------------------------+------------+---------------------+-----------+--------------------+---------+-----------------------+------------+----------------------+
+| bd_7cab_srn_0               | Up-to-date | No changes required |  *(45)    | SmartConnect Node  | 1.0     | 1.0 (Rev. 10)         | Included   | xc7z020clg400-1      |
+|                             |            |                     |           |                    | (Rev.   |                       |            |                      |
+|                             |            |                     |           |                    | 10)     |                       |            |                      |
++-----------------------------+------------+---------------------+-----------+--------------------+---------+-----------------------+------------+----------------------+
+| bd_7cab_srn_1               | Up-to-date | No changes required |  *(46)    | SmartConnect Node  | 1.0     | 1.0 (Rev. 10)         | Included   | xc7z020clg400-1      |
+|                             |            |                     |           |                    | (Rev.   |                       |            |                      |
+|                             |            |                     |           |                    | 10)     |                       |            |                      |
++-----------------------------+------------+---------------------+-----------+--------------------+---------+-----------------------+------------+----------------------+
+| bd_7cab_swn_0               | Up-to-date | No changes required |  *(47)    | SmartConnect Node  | 1.0     | 1.0 (Rev. 10)         | Included   | xc7z020clg400-1      |
+|                             |            |                     |           |                    | (Rev.   |                       |            |                      |
+|                             |            |                     |           |                    | 10)     |                       |            |                      |
++-----------------------------+------------+---------------------+-----------+--------------------+---------+-----------------------+------------+----------------------+
+| bd_7cab_swn_1               | Up-to-date | No changes required |  *(48)    | SmartConnect Node  | 1.0     | 1.0 (Rev. 10)         | Included   | xc7z020clg400-1      |
+|                             |            |                     |           |                    | (Rev.   |                       |            |                      |
+|                             |            |                     |           |                    | 10)     |                       |            |                      |
++-----------------------------+------------+---------------------+-----------+--------------------+---------+-----------------------+------------+----------------------+
+| bd_7cab_wsw_0               | Up-to-date | No changes required |  *(49)    | SmartConnect       | 1.0     | 1.0 (Rev. 6)          | Included   | xc7z020clg400-1      |
+|                             |            |                     |           | Switchboard        | (Rev.   |                       |            |                      |
+|                             |            |                     |           |                    | 6)      |                       |            |                      |
++-----------------------------+------------+---------------------+-----------+--------------------+---------+-----------------------+------------+----------------------+
+*(1) /home/bienso/fpga/Xilinx/Vivado/2018.3/data/ip/xilinx/smartconnect_v1_0/doc/smartconnect_v1_0_changelog.txt
+*(2) /home/bienso/fpga/Xilinx/Vivado/2018.3/data/ip/xilinx/axi_vdma_v6_3/doc/axi_vdma_v6_3_changelog.txt
+*(3) /home/bienso/fpga/Xilinx/Vivado/2018.3/data/ip/xilinx/axi_vdma_v6_3/doc/axi_vdma_v6_3_changelog.txt
+*(4) /home/bienso/fpga/Xilinx/Vivado/2018.3/data/ip/xilinx/processing_system7_v5_5/doc/processing_system7_v5_5_changelog.txt
+*(5) /home/bienso/fpga/Xilinx/Vivado/2018.3/data/ip/xilinx/axi_interconnect_v2_1/doc/axi_interconnect_v2_1_changelog.txt
+*(6) /home/bienso/fpga/Xilinx/Vivado/2018.3/data/ip/xilinx/proc_sys_reset_v5_0/doc/proc_sys_reset_v5_0_changelog.txt
+*(7) /home/bienso/fpga/Xilinx/Vivado/2018.3/data/ip/xilinx/v_axi4s_vid_out_v4_0/doc/v_axi4s_vid_out_v4_0_changelog.txt
+*(8) /home/bienso/fpga/Xilinx/Vivado/2018.3/data/ip/xilinx/v_tc_v6_1/doc/v_tc_v6_1_changelog.txt
+*(9) /home/bienso/fpga/Xilinx/Vivado/2018.3/data/ip/xilinx/v_vid_in_axi4s_v4_0/doc/v_vid_in_axi4s_v4_0_changelog.txt
+*(10) /home/bienso/fpga/Xilinx/Vivado/2018.3/data/ip/xilinx/sc_switchboard_v1_0/doc/sc_switchboard_v1_0_changelog.txt
+*(11) /home/bienso/fpga/Xilinx/Vivado/2018.3/data/ip/xilinx/sc_switchboard_v1_0/doc/sc_switchboard_v1_0_changelog.txt
+*(12) /home/bienso/fpga/Xilinx/Vivado/2018.3/data/ip/xilinx/sc_switchboard_v1_0/doc/sc_switchboard_v1_0_changelog.txt
+*(13) /home/bienso/fpga/Xilinx/Vivado/2018.3/data/ip/xilinx/sc_node_v1_0/doc/sc_node_v1_0_changelog.txt
+*(14) /home/bienso/fpga/Xilinx/Vivado/2018.3/data/ip/xilinx/sc_node_v1_0/doc/sc_node_v1_0_changelog.txt
+*(15) /home/bienso/fpga/Xilinx/Vivado/2018.3/data/ip/xilinx/sc_node_v1_0/doc/sc_node_v1_0_changelog.txt
+*(16) /home/bienso/fpga/Xilinx/Vivado/2018.3/data/ip/xilinx/sc_exit_v1_0/doc/sc_exit_v1_0_changelog.txt
+*(17) /home/bienso/fpga/Xilinx/Vivado/2018.3/data/ip/xilinx/sc_node_v1_0/doc/sc_node_v1_0_changelog.txt
+*(18) /home/bienso/fpga/Xilinx/Vivado/2018.3/data/ip/xilinx/sc_sc2axi_v1_0/doc/sc_sc2axi_v1_0_changelog.txt
+*(19) /home/bienso/fpga/Xilinx/Vivado/2018.3/data/ip/xilinx/sc_node_v1_0/doc/sc_node_v1_0_changelog.txt
+*(20) /home/bienso/fpga/Xilinx/Vivado/2018.3/data/ip/xilinx/xlconstant_v1_1/doc/xlconstant_v1_1_changelog.txt
+*(21) /home/bienso/fpga/Xilinx/Vivado/2018.3/data/ip/xilinx/proc_sys_reset_v5_0/doc/proc_sys_reset_v5_0_changelog.txt
+*(22) /home/bienso/fpga/Xilinx/Vivado/2018.3/data/ip/xilinx/sc_switchboard_v1_0/doc/sc_switchboard_v1_0_changelog.txt
+*(23) /home/bienso/fpga/Xilinx/Vivado/2018.3/data/ip/xilinx/sc_axi2sc_v1_0/doc/sc_axi2sc_v1_0_changelog.txt
+*(24) /home/bienso/fpga/Xilinx/Vivado/2018.3/data/ip/xilinx/sc_mmu_v1_0/doc/sc_mmu_v1_0_changelog.txt
+*(25) /home/bienso/fpga/Xilinx/Vivado/2018.3/data/ip/xilinx/sc_si_converter_v1_0/doc/sc_si_converter_v1_0_changelog.txt
+*(26) /home/bienso/fpga/Xilinx/Vivado/2018.3/data/ip/xilinx/sc_transaction_regulator_v1_0/doc/sc_transaction_regulator_v1_0_changelog.txt
+*(27) /home/bienso/fpga/Xilinx/Vivado/2018.3/data/ip/xilinx/sc_axi2sc_v1_0/doc/sc_axi2sc_v1_0_changelog.txt
+*(28) /home/bienso/fpga/Xilinx/Vivado/2018.3/data/ip/xilinx/sc_mmu_v1_0/doc/sc_mmu_v1_0_changelog.txt
+*(29) /home/bienso/fpga/Xilinx/Vivado/2018.3/data/ip/xilinx/sc_si_converter_v1_0/doc/sc_si_converter_v1_0_changelog.txt
+*(30) /home/bienso/fpga/Xilinx/Vivado/2018.3/data/ip/xilinx/sc_transaction_regulator_v1_0/doc/sc_transaction_regulator_v1_0_changelog.txt
+*(31) /home/bienso/fpga/Xilinx/Vivado/2018.3/data/ip/xilinx/sc_axi2sc_v1_0/doc/sc_axi2sc_v1_0_changelog.txt
+*(32) /home/bienso/fpga/Xilinx/Vivado/2018.3/data/ip/xilinx/sc_mmu_v1_0/doc/sc_mmu_v1_0_changelog.txt
+*(33) /home/bienso/fpga/Xilinx/Vivado/2018.3/data/ip/xilinx/sc_si_converter_v1_0/doc/sc_si_converter_v1_0_changelog.txt
+*(34) /home/bienso/fpga/Xilinx/Vivado/2018.3/data/ip/xilinx/sc_transaction_regulator_v1_0/doc/sc_transaction_regulator_v1_0_changelog.txt
+*(35) /home/bienso/fpga/Xilinx/Vivado/2018.3/data/ip/xilinx/sc_axi2sc_v1_0/doc/sc_axi2sc_v1_0_changelog.txt
+*(36) /home/bienso/fpga/Xilinx/Vivado/2018.3/data/ip/xilinx/sc_mmu_v1_0/doc/sc_mmu_v1_0_changelog.txt
+*(37) /home/bienso/fpga/Xilinx/Vivado/2018.3/data/ip/xilinx/sc_si_converter_v1_0/doc/sc_si_converter_v1_0_changelog.txt
+*(38) /home/bienso/fpga/Xilinx/Vivado/2018.3/data/ip/xilinx/sc_transaction_regulator_v1_0/doc/sc_transaction_regulator_v1_0_changelog.txt
+*(39) /home/bienso/fpga/Xilinx/Vivado/2018.3/data/ip/xilinx/sc_node_v1_0/doc/sc_node_v1_0_changelog.txt
+*(40) /home/bienso/fpga/Xilinx/Vivado/2018.3/data/ip/xilinx/sc_node_v1_0/doc/sc_node_v1_0_changelog.txt
+*(41) /home/bienso/fpga/Xilinx/Vivado/2018.3/data/ip/xilinx/sc_node_v1_0/doc/sc_node_v1_0_changelog.txt
+*(42) /home/bienso/fpga/Xilinx/Vivado/2018.3/data/ip/xilinx/sc_node_v1_0/doc/sc_node_v1_0_changelog.txt
+*(43) /home/bienso/fpga/Xilinx/Vivado/2018.3/data/ip/xilinx/sc_node_v1_0/doc/sc_node_v1_0_changelog.txt
+*(44) /home/bienso/fpga/Xilinx/Vivado/2018.3/data/ip/xilinx/sc_node_v1_0/doc/sc_node_v1_0_changelog.txt
+*(45) /home/bienso/fpga/Xilinx/Vivado/2018.3/data/ip/xilinx/sc_node_v1_0/doc/sc_node_v1_0_changelog.txt
+*(46) /home/bienso/fpga/Xilinx/Vivado/2018.3/data/ip/xilinx/sc_node_v1_0/doc/sc_node_v1_0_changelog.txt
+*(47) /home/bienso/fpga/Xilinx/Vivado/2018.3/data/ip/xilinx/sc_node_v1_0/doc/sc_node_v1_0_changelog.txt
+*(48) /home/bienso/fpga/Xilinx/Vivado/2018.3/data/ip/xilinx/sc_node_v1_0/doc/sc_node_v1_0_changelog.txt
+*(49) /home/bienso/fpga/Xilinx/Vivado/2018.3/data/ip/xilinx/sc_switchboard_v1_0/doc/sc_switchboard_v1_0_changelog.txt
+
+
+reset_target all [get_ips zynq_v_tc_0_0]
+ERROR: [Vivado 12-3564] The Nested sub-design '/home/bienso/Videos/22_ov7725_lcd_test/22_ov7725_lcd/ov7725_lcd/ov7725_lcd.srcs/sources_1/bd/zynq/ip/zynq_v_tc_0_0_1/zynq_v_tc_0_0.xci' can only be reset by its parent sub-design.
+reset_target all [get_files */zynq.bd]
+set bd [get_files */zynq.bd]
+/home/bienso/Videos/22_ov7725_lcd_test/22_ov7725_lcd/ov7725_lcd/ov7725_lcd.srcs/sources_1/bd/zynq/zynq.bd
+puts $bd
+/home/bienso/Videos/22_ov7725_lcd_test/22_ov7725_lcd/ov7725_lcd/ov7725_lcd.srcs/sources_1/bd/zynq/zynq.bd
+reset_target all $bd
+generate_target all $bd
+INFO: [BD 41-1662] The design 'zynq.bd' is already validated. Therefore parameter propagation will not be re-run.
+VHDL Output written to : /home/bienso/Videos/22_ov7725_lcd_test/22_ov7725_lcd/ov7725_lcd/ov7725_lcd.srcs/sources_1/bd/zynq/synth/zynq.v
+VHDL Output written to : /home/bienso/Videos/22_ov7725_lcd_test/22_ov7725_lcd/ov7725_lcd/ov7725_lcd.srcs/sources_1/bd/zynq/sim/zynq.v
+VHDL Output written to : /home/bienso/Videos/22_ov7725_lcd_test/22_ov7725_lcd/ov7725_lcd/ov7725_lcd.srcs/sources_1/bd/zynq/hdl/zynq_wrapper.v
+INFO: [BD 41-1029] Generation completed for the IP Integrator block processing_system7_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block axi_vdma_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block v_axi4s_vid_out_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block tft_lcd_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block axi_dynclk_0 .
+Exporting to file /home/bienso/Videos/22_ov7725_lcd_test/22_ov7725_lcd/ov7725_lcd/ov7725_lcd.srcs/sources_1/bd/zynq/ip/zynq_axi_smc_0/bd_0/hw_handoff/zynq_axi_smc_0.hwh
+Generated Block Design Tcl file /home/bienso/Videos/22_ov7725_lcd_test/22_ov7725_lcd/ov7725_lcd/ov7725_lcd.srcs/sources_1/bd/zynq/ip/zynq_axi_smc_0/bd_0/hw_handoff/zynq_axi_smc_0_bd.tcl
+Generated Hardware Definition File /home/bienso/Videos/22_ov7725_lcd_test/22_ov7725_lcd/ov7725_lcd/ov7725_lcd.srcs/sources_1/bd/zynq/ip/zynq_axi_smc_0/bd_0/synth/zynq_axi_smc_0.hwdef
+INFO: [BD 41-1029] Generation completed for the IP Integrator block axi_smc .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block rst_ps7_0_100M .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block ov7725_data_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block v_vid_in_axi4s_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block ps7_0_axi_periph/xbar .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block gaussian_blur_3x3_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block otsu_threshold_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block axis_24to8_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block morphological_open_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block axis_8to24_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block axi_vdma_roi_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block v_tc_0 .
+WARNING: [IP_Flow 19-4994] Overwriting existing constraint file '/home/bienso/Videos/22_ov7725_lcd_test/22_ov7725_lcd/ov7725_lcd/ov7725_lcd.srcs/sources_1/bd/zynq/ip/zynq_auto_pc_0/zynq_auto_pc_0_ooc.xdc'
+INFO: [BD 41-1029] Generation completed for the IP Integrator block ps7_0_axi_periph/s00_couplers/auto_pc .
+Exporting to file /home/bienso/Videos/22_ov7725_lcd_test/22_ov7725_lcd/ov7725_lcd/ov7725_lcd.srcs/sources_1/bd/zynq/hw_handoff/zynq.hwh
+Generated Block Design Tcl file /home/bienso/Videos/22_ov7725_lcd_test/22_ov7725_lcd/ov7725_lcd/ov7725_lcd.srcs/sources_1/bd/zynq/hw_handoff/zynq_bd.tcl
+Generated Hardware Definition File /home/bienso/Videos/22_ov7725_lcd_test/22_ov7725_lcd/ov7725_lcd/ov7725_lcd.srcs/sources_1/bd/zynq/synth/zynq.hwdef
+generate_target: Time (s): cpu = 00:00:15 ; elapsed = 00:00:15 . Memory (MB): peak = 7342.316 ; gain = 0.000 ; free physical = 6049 ; free virtual = 11929
+export_ip_user_files \
+-of_objects $bd \
+-no_script -sync -force -quiet
+update_compile_order -fileset sources_1
+INFO: [Vivado 12-3458] The update_compile_order command is not intended for use in the GUI, where compile order updates occur based on project changes and the hierarchy update settings. No update performed.
+get_files -all *zynq_v_tc_0_0*
+/home/bienso/Videos/22_ov7725_lcd_test/22_ov7725_lcd/ov7725_lcd/ov7725_lcd.srcs/sources_1/bd/zynq/ip/zynq_v_tc_0_0/zynq_v_tc_0_0.xci /home/bienso/Videos/22_ov7725_lcd_test/22_ov7725_lcd/ov7725_lcd/ov7725_lcd.srcs/sources_1/bd/zynq/ip/zynq_v_tc_0_0_1/zynq_v_tc_0_0.xci /home/bienso/Videos/22_ov7725_lcd_test/22_ov7725_lcd/ov7725_lcd/ov7725_lcd.srcs/sources_1/bd/zynq/ip/zynq_v_tc_0_0_1/zynq_v_tc_0_0.xml /home/bienso/Videos/22_ov7725_lcd_test/22_ov7725_lcd/ov7725_lcd/ov7725_lcd.srcs/sources_1/bd/zynq/ip/zynq_v_tc_0_0_1/sim/zynq_v_tc_0_0.vhd /home/bienso/Videos/22_ov7725_lcd_test/22_ov7725_lcd/ov7725_lcd/ov7725_lcd.srcs/sources_1/bd/zynq/ip/zynq_v_tc_0_0_1/zynq_v_tc_0_0_clocks.xdc /home/bienso/Videos/22_ov7725_lcd_test/22_ov7725_lcd/ov7725_lcd/ov7725_lcd.srcs/sources_1/bd/zynq/ip/zynq_v_tc_0_0_1/synth/zynq_v_tc_0_0.vhd /home/bienso/Videos/22_ov7725_lcd_test/22_ov7725_lcd/ov7725_lcd/ov7725_lcd.srcs/sources_1/bd/zynq/ip/zynq_v_tc_0_0_1/zynq_v_tc_0_0_ooc.xdc /home/bienso/Videos/22_ov7725_lcd_test/22_ov7725_lcd/ov7725_lcd/ov7725_lcd.srcs/sources_1/bd/zynq/ip/zynq_v_tc_0_0/synth/zynq_v_tc_0_0.vhd /home/bienso/Videos/22_ov7725_lcd_test/22_ov7725_lcd/ov7725_lcd/ov7725_lcd.srcs/sources_1/bd/zynq/ip/zynq_v_tc_0_0/zynq_v_tc_0_0_ooc.xdc
+get_files -all *zynq_v_tc_0_0.vhd
+/home/bienso/Videos/22_ov7725_lcd_test/22_ov7725_lcd/ov7725_lcd/ov7725_lcd.srcs/sources_1/bd/zynq/ip/zynq_v_tc_0_0_1/sim/zynq_v_tc_0_0.vhd /home/bienso/Videos/22_ov7725_lcd_test/22_ov7725_lcd/ov7725_lcd/ov7725_lcd.srcs/sources_1/bd/zynq/ip/zynq_v_tc_0_0_1/synth/zynq_v_tc_0_0.vhd /home/bienso/Videos/22_ov7725_lcd_test/22_ov7725_lcd/ov7725_lcd/ov7725_lcd.srcs/sources_1/bd/zynq/ip/zynq_v_tc_0_0/synth/zynq_v_tc_0_0.vhd
+validate_bd_design
+INFO: [BD 5-320] Validate design is not run, since the design is already validated.
+save_bd_design
+reset_run zynq_v_tc_0_0_synth_1
+launch_runs zynq_v_tc_0_0_synth_1 -jobs 4
+[Thu Sep  3 20:50:44 2026] Launched zynq_v_tc_0_0_synth_1...
+Run output will be captured here: /home/bienso/Videos/22_ov7725_lcd_test/22_ov7725_lcd/ov7725_lcd/ov7725_lcd.runs/zynq_v_tc_0_0_synth_1/runme.log
+get_runs *v_tc*
+zynq_v_tc_0_0_synth_1 zynq_v_tc_0_0_impl_1
+delete_runs [get_runs zynq_v_tc_0_0_synth_1]
+INFO: [Vivado 12-3261] Dependent run, 'zynq_v_tc_0_0_impl_1', will be deleted with parent run, 'zynq_v_tc_0_0_synth_1'.
+get_runs *v_tc*
+WARNING: [Vivado 12-821] No runs matched '*v_tc*'
+set bd [get_files */zynq.bd]
+/home/bienso/Videos/22_ov7725_lcd_test/22_ov7725_lcd/ov7725_lcd/ov7725_lcd.srcs/sources_1/bd/zynq/zynq.bd
+reset_target all $bd
+generate_target all $bd
+INFO: [BD 41-1662] The design 'zynq.bd' is already validated. Therefore parameter propagation will not be re-run.
+VHDL Output written to : /home/bienso/Videos/22_ov7725_lcd_test/22_ov7725_lcd/ov7725_lcd/ov7725_lcd.srcs/sources_1/bd/zynq/synth/zynq.v
+VHDL Output written to : /home/bienso/Videos/22_ov7725_lcd_test/22_ov7725_lcd/ov7725_lcd/ov7725_lcd.srcs/sources_1/bd/zynq/sim/zynq.v
+VHDL Output written to : /home/bienso/Videos/22_ov7725_lcd_test/22_ov7725_lcd/ov7725_lcd/ov7725_lcd.srcs/sources_1/bd/zynq/hdl/zynq_wrapper.v
+INFO: [BD 41-1029] Generation completed for the IP Integrator block processing_system7_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block axi_vdma_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block v_axi4s_vid_out_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block tft_lcd_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block axi_dynclk_0 .
+Exporting to file /home/bienso/Videos/22_ov7725_lcd_test/22_ov7725_lcd/ov7725_lcd/ov7725_lcd.srcs/sources_1/bd/zynq/ip/zynq_axi_smc_0/bd_0/hw_handoff/zynq_axi_smc_0.hwh
+Generated Block Design Tcl file /home/bienso/Videos/22_ov7725_lcd_test/22_ov7725_lcd/ov7725_lcd/ov7725_lcd.srcs/sources_1/bd/zynq/ip/zynq_axi_smc_0/bd_0/hw_handoff/zynq_axi_smc_0_bd.tcl
+Generated Hardware Definition File /home/bienso/Videos/22_ov7725_lcd_test/22_ov7725_lcd/ov7725_lcd/ov7725_lcd.srcs/sources_1/bd/zynq/ip/zynq_axi_smc_0/bd_0/synth/zynq_axi_smc_0.hwdef
+INFO: [BD 41-1029] Generation completed for the IP Integrator block axi_smc .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block rst_ps7_0_100M .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block ov7725_data_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block v_vid_in_axi4s_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block ps7_0_axi_periph/xbar .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block gaussian_blur_3x3_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block otsu_threshold_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block axis_24to8_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block morphological_open_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block axis_8to24_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block axi_vdma_roi_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block v_tc_0 .
+WARNING: [IP_Flow 19-4994] Overwriting existing constraint file '/home/bienso/Videos/22_ov7725_lcd_test/22_ov7725_lcd/ov7725_lcd/ov7725_lcd.srcs/sources_1/bd/zynq/ip/zynq_auto_pc_0/zynq_auto_pc_0_ooc.xdc'
+INFO: [BD 41-1029] Generation completed for the IP Integrator block ps7_0_axi_periph/s00_couplers/auto_pc .
+Exporting to file /home/bienso/Videos/22_ov7725_lcd_test/22_ov7725_lcd/ov7725_lcd/ov7725_lcd.srcs/sources_1/bd/zynq/hw_handoff/zynq.hwh
+Generated Block Design Tcl file /home/bienso/Videos/22_ov7725_lcd_test/22_ov7725_lcd/ov7725_lcd/ov7725_lcd.srcs/sources_1/bd/zynq/hw_handoff/zynq_bd.tcl
+Generated Hardware Definition File /home/bienso/Videos/22_ov7725_lcd_test/22_ov7725_lcd/ov7725_lcd/ov7725_lcd.srcs/sources_1/bd/zynq/synth/zynq.hwdef
+generate_target: Time (s): cpu = 00:00:23 ; elapsed = 00:00:17 . Memory (MB): peak = 7476.754 ; gain = 0.000 ; free physical = 5915 ; free virtual = 11783
+export_ip_user_files \
+-of_objects $bd \
+-no_script -sync -force -quiet
+update_compile_order -fileset sources_1
+INFO: [Vivado 12-3458] The update_compile_order command is not intended for use in the GUI, where compile order updates occur based on project changes and the hierarchy update settings. No update performed.
+get_files -all *v_tc_0_0*
+/home/bienso/Videos/22_ov7725_lcd_test/22_ov7725_lcd/ov7725_lcd/ov7725_lcd.srcs/sources_1/bd/zynq/ip/zynq_v_tc_0_0/zynq_v_tc_0_0.xci /home/bienso/Videos/22_ov7725_lcd_test/22_ov7725_lcd/ov7725_lcd/ov7725_lcd.srcs/sources_1/bd/zynq/ip/zynq_v_tc_0_0_1/zynq_v_tc_0_0.xci /home/bienso/Videos/22_ov7725_lcd_test/22_ov7725_lcd/ov7725_lcd/ov7725_lcd.srcs/sources_1/bd/zynq/ip/zynq_v_tc_0_0_1/zynq_v_tc_0_0.xml /home/bienso/Videos/22_ov7725_lcd_test/22_ov7725_lcd/ov7725_lcd/ov7725_lcd.srcs/sources_1/bd/zynq/ip/zynq_v_tc_0_0_1/sim/zynq_v_tc_0_0.vhd /home/bienso/Videos/22_ov7725_lcd_test/22_ov7725_lcd/ov7725_lcd/ov7725_lcd.srcs/sources_1/bd/zynq/ip/zynq_v_tc_0_0_1/zynq_v_tc_0_0_clocks.xdc /home/bienso/Videos/22_ov7725_lcd_test/22_ov7725_lcd/ov7725_lcd/ov7725_lcd.srcs/sources_1/bd/zynq/ip/zynq_v_tc_0_0_1/synth/zynq_v_tc_0_0.vhd /home/bienso/Videos/22_ov7725_lcd_test/22_ov7725_lcd/ov7725_lcd/ov7725_lcd.srcs/sources_1/bd/zynq/ip/zynq_v_tc_0_0_1/zynq_v_tc_0_0_ooc.xdc /home/bienso/Videos/22_ov7725_lcd_test/22_ov7725_lcd/ov7725_lcd/ov7725_lcd.srcs/sources_1/bd/zynq/ip/zynq_v_tc_0_0/synth/zynq_v_tc_0_0.vhd /home/bienso/Videos/22_ov7725_lcd_test/22_ov7725_lcd/ov7725_lcd/ov7725_lcd.srcs/sources_1/bd/zynq/ip/zynq_v_tc_0_0/zynq_v_tc_0_0_ooc.xdc
+get_files -all *v_tc_0_0.vhd
+/home/bienso/Videos/22_ov7725_lcd_test/22_ov7725_lcd/ov7725_lcd/ov7725_lcd.srcs/sources_1/bd/zynq/ip/zynq_v_tc_0_0_1/sim/zynq_v_tc_0_0.vhd /home/bienso/Videos/22_ov7725_lcd_test/22_ov7725_lcd/ov7725_lcd/ov7725_lcd.srcs/sources_1/bd/zynq/ip/zynq_v_tc_0_0_1/synth/zynq_v_tc_0_0.vhd /home/bienso/Videos/22_ov7725_lcd_test/22_ov7725_lcd/ov7725_lcd/ov7725_lcd.srcs/sources_1/bd/zynq/ip/zynq_v_tc_0_0/synth/zynq_v_tc_0_0.vhd
+get_files -all *v_tc_0_0.v
+WARNING: [Vivado 12-818] No files matched '*v_tc_0_0.v'
+get_files -all *v_tc_0_0.v
+WARNING: [Vivado 12-818] No files matched '*v_tc_0_0.v'
+create_ip_run $bd
+zynq_processing_system7_0_0_synth_1 zynq_axi_vdma_0_0_synth_1 zynq_v_axi4s_vid_out_0_0_synth_1 zynq_tft_lcd_0_0_synth_1 zynq_axi_dynclk_0_0_synth_1 zynq_axi_smc_0_synth_1 zynq_rst_ps7_0_100M_0_synth_1 zynq_ov7725_data_0_0_synth_1 zynq_v_vid_in_axi4s_0_0_synth_1 zynq_xbar_0_synth_1 zynq_gaussian_blur_3x3_0_0_synth_1 zynq_otsu_threshold_0_0_synth_1 zynq_axis_24to8_0_1_synth_1 zynq_morphological_open_0_0_synth_1 zynq_axis_8to24_0_0_synth_1 zynq_v_tc_0_0_synth_1 zynq_axi_vdma_roi_0_0_synth_1 zynq_v_tc_0_0_synth_1 zynq_auto_pc_0_synth_1
+get_runs *v_tc*
+zynq_v_tc_0_0_synth_1 zynq_v_tc_0_0_impl_1
+launch_runs zynq_v_tc_0_0_synth_1 -jobs 4
+[Thu Sep  3 20:56:34 2026] Launched zynq_v_tc_0_0_synth_1...
+Run output will be captured here: /home/bienso/Videos/22_ov7725_lcd_test/22_ov7725_lcd/ov7725_lcd/ov7725_lcd.runs/zynq_v_tc_0_0_synth_1/runme.log
+exit
+INFO: [Common 17-206] Exiting Vivado at Thu Sep  3 20:57:09 2026...

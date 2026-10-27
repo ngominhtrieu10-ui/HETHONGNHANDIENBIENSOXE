@@ -1,0 +1,22 @@
+
+*** Running vivado
+    with args -log zynq_v_tc_0_1.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source zynq_v_tc_0_1.tcl
+
+
+****** Vivado v2018.3 (64-bit)
+  **** SW Build 2405991 on Thu Dec  6 23:36:41 MST 2018
+  **** IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
+    ** Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+
+source zynq_v_tc_0_1.tcl -notrace
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository '/home/bienso/Videos/22_ov7725_lcd_test/22_ov7725_lcd/ov7725_lcd/ip_repo/ov7725_data_1.0'.
+INFO: [IP_Flow 19-1700] Loaded user IP repository '/home/bienso/Videos/22_ov7725_lcd_test/22_ov7725_lcd/ov7725_lcd/ip_repo/tft_lcd_1.0'.
+INFO: [IP_Flow 19-1700] Loaded user IP repository '/home/bienso/Videos/22_ov7725_lcd_test/22_ov7725_lcd/ov7725_lcd/ip_repo/axi_dynclk_v1_0'.
+INFO: [IP_Flow 19-1700] Loaded user IP repository '/home/bienso/Downloads/TemplatesBienSo/hls_gaussian_blur'.
+INFO: [IP_Flow 19-1700] Loaded user IP repository '/home/bienso/Downloads/TemplatesBienSo/hls_otsu_threshold'.
+INFO: [IP_Flow 19-1700] Loaded user IP repository '/home/bienso/Downloads/TemplatesBienSo/hls_morphological_open'.
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/home/bienso/fpga/Xilinx/Vivado/2018.3/data/ip'.
+update_ip_catalog: Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 1383.203 ; gain = 0.000 ; free physical = 8388 ; free virtual = 13029
+INFO: [IP_Flow 19-4838] Using cached IP synthesis design for IP zynq_v_tc_0_1, cache-ID = 1ccdef19d84dc036.
+INFO: [Common 17-206] Exiting Vivado at Fri Sep  4 18:00:04 2026...

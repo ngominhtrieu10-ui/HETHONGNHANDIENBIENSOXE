@@ -1,0 +1,49 @@
+ZYNQ-7020 + OV7725 - NHẬN DIỆN BIỂN SỐ BẰNG NÚT TRÊN APP
+
+LUỒNG ĐÃ SỬA
+1. Camera OV7725 chạy VGA 640x480, RGB565 ở đầu cảm biến.
+2. IP ov7725_data chuyển dữ liệu sang RGB888/grayscale và VDMA ghi vào 3 framebuffer.
+3. LCD 800x480 hiển thị camera và khung ROI 190x140 ở giữa vùng ảnh 640x480.
+4. Đưa biển số nằm trọn trong khung, không để mép biển số chạm viền.
+5. Bấm NHẬN DIỆN BIỂN SỐ trên app PC.
+6. App gửi lệnh $CAPTURE qua PS UART0, 115200 baud.
+7. ARM dừng kênh ghi VDMA ở cuối khung hình, sao chép đúng ROI và chạy OCR.
+8. ARM gửi chuỗi biển số và ảnh ROI về app; kết quả cũng hiện trên LCD.
+9. Sau thời gian giữ kết quả, camera tự chạy lại và nút app được bật lại.
+
+CÁC ĐIỂM ĐÃ SỬA
+- Bỏ chờ thêm 4 vòng sau khi bấm nút; ảnh được khóa gần thời điểm bấm nhất.
+- Dời viền xanh ra ngoài ROI để viền không đi vào ảnh OCR.
+- Dùng Otsu để tự chọn ngưỡng theo độ sáng thật của camera.
+- Lọc OCR theo cấu trúc biển số Việt Nam: 2 số tỉnh, 1 chữ cái, phần còn lại là số.
+- Ưu tiên các thành phần có chiều cao giống ký tự, giảm chọn nhầm nhiễu nhỏ.
+- Thêm app PC chọn COM, nút nhận diện, kết quả và ảnh ROI.
+
+BUILD SDK 2018.3
+1. Giải nén project vào một thư mục mới.
+2. Mở SDK và chọn workspace trống.
+3. File > Import > General > Existing Projects into Workspace.
+4. Browse đến 22_ov7725_lcd/ov7725_lcd/ov7725_lcd.sdk.
+5. Chọn zynq_wrapper_hw_platform_3, ov7725_lcd_bsp_new và ov7725_lcd.
+6. Bỏ chọn Copy projects into workspace.
+7. Build ov7725_lcd_bsp_new, sau đó Clean Project và Build ov7725_lcd.
+8. Run/Debug trên ps7_cortexa9_0 bằng hardware platform_3.
+
+LƯU Ý
+- Đây là sửa mã C/app, không cần Generate Bitstream lại nếu bitstream hiện tại vẫn chạy camera/LCD.
+- Phải Build lại ELF rồi nạp ELF mới lên board.
+- App dùng PS UART0. Không mở SDK Terminal hoặc PuTTY cùng lúc.
+- Chạy app tại PC_APP_ZYNQ_PLATE/CHAY_APP_WINDOWS.bat.
+- Nếu muốn file EXE, chạy PC_APP_ZYNQ_PLATE/DONG_GOI_EXE.bat.
+- Camera theo tài liệu gửi kèm: VGA 640x480, RGB565, 2 PCLK cho một pixel.
+
+KIỂM TRA KHÔNG CẦN UART CONSOLE
+Trong Debug > Expressions có thể xem:
+app_stage, app_error, app_clock_error, app_heartbeat,
+app_vdma_write_status, app_vdma_read_status, app_log_count,
+app_log_dropped, app_log.
+
+app_stage:
+1 vào main; 2 framebuffer; 3 clock/display; 4 mode LCD; 5 VDMA;
+6 HLS; 7 SCCB/camera; 8 LCD; 9 camera đang chạy;
+10 khóa VDMA; 11 OCR; 12 giữ kết quả.

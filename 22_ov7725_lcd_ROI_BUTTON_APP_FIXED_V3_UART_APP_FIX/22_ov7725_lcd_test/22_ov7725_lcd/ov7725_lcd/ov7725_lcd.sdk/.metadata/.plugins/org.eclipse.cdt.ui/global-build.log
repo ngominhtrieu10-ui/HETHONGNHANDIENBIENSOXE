@@ -1,0 +1,123 @@
+16:28:48 **** Incremental Build of configuration Debug for project ov7725_lcd ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+make: Nothing to be done for 'main-build'.
+16:28:54 **** Incremental Build of configuration Debug for project ov7725_lcd ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+make: Nothing to be done for 'main-build'.
+16:37:12 **** Auto Build of configuration Debug for project ov7725_lcd ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+Building file: ../src/plate_recognition.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/plate_recognition.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../ov7725_lcd_bsp_new/ps7_cortexa9_0/include -MMD -MP -MF"src/plate_recognition.d" -MT"src/plate_recognition.o" -o "src/plate_recognition.o" "../src/plate_recognition.c"
+Finished building: ../src/plate_recognition.c
+ 
+Building target: ov7725_lcd.elf
+Invoking: ARM v7 gcc linker
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../ov7725_lcd_bsp_new/ps7_cortexa9_0/lib -o "ov7725_lcd.elf"  ./src/vdma_api/vdma_api.o  ./src/sccb/sccb_init.o  ./src/overlay/overlay.o  ./src/ov7725/ov7725_init.o  ./src/dynclk/dynclk.o  ./src/display_ctrl/display_ctrl.o  ./src/main.o ./src/plate_app_bridge.o ./src/plate_ocr.o ./src/plate_recognition.o ./src/plate_training_data.o ./src/safe_console.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+Finished building target: ov7725_lcd.elf
+ 
+Invoking: ARM v7 Print Size
+arm-none-eabi-size ov7725_lcd.elf  |tee "ov7725_lcd.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+ 546388	   2744	 223024	 772156	  bc83c	ov7725_lcd.elf
+Finished building: ov7725_lcd.elf.size
+ 
+16:37:38 **** Auto Build of configuration Debug for project ov7725_lcd ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+Building file: ../src/plate_recognition.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/plate_recognition.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../ov7725_lcd_bsp_new/ps7_cortexa9_0/include -MMD -MP -MF"src/plate_recognition.d" -MT"src/plate_recognition.o" -o "src/plate_recognition.o" "../src/plate_recognition.c"
+../src/plate_recognition.c:133:12: warning: 'filter_character_sizes' defined but not used [-Wunused-function]
+ static int filter_character_sizes(PlateCharacter *c, int n)
+            ^~~~~~~~~~~~~~~~~~~~~~
+Finished building: ../src/plate_recognition.c
+ 
+Building target: ov7725_lcd.elf
+Invoking: ARM v7 gcc linker
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../ov7725_lcd_bsp_new/ps7_cortexa9_0/lib -o "ov7725_lcd.elf"  ./src/vdma_api/vdma_api.o  ./src/sccb/sccb_init.o  ./src/overlay/overlay.o  ./src/ov7725/ov7725_init.o  ./src/dynclk/dynclk.o  ./src/display_ctrl/display_ctrl.o  ./src/main.o ./src/plate_app_bridge.o ./src/plate_ocr.o ./src/plate_recognition.o ./src/plate_training_data.o ./src/safe_console.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+Finished building target: ov7725_lcd.elf
+ 
+Invoking: ARM v7 Print Size
+arm-none-eabi-size ov7725_lcd.elf  |tee "ov7725_lcd.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+ 546900	   2744	 223024	 772668	  bca3c	ov7725_lcd.elf
+Finished building: ov7725_lcd.elf.size
+ 
+16:37:59 **** Auto Build of configuration Debug for project ov7725_lcd ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+Building file: ../src/plate_recognition.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/plate_recognition.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../ov7725_lcd_bsp_new/ps7_cortexa9_0/include -MMD -MP -MF"src/plate_recognition.d" -MT"src/plate_recognition.o" -o "src/plate_recognition.o" "../src/plate_recognition.c"
+Finished building: ../src/plate_recognition.c
+ 
+Building target: ov7725_lcd.elf
+Invoking: ARM v7 gcc linker
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../ov7725_lcd_bsp_new/ps7_cortexa9_0/lib -o "ov7725_lcd.elf"  ./src/vdma_api/vdma_api.o  ./src/sccb/sccb_init.o  ./src/overlay/overlay.o  ./src/ov7725/ov7725_init.o  ./src/dynclk/dynclk.o  ./src/display_ctrl/display_ctrl.o  ./src/main.o ./src/plate_app_bridge.o ./src/plate_ocr.o ./src/plate_recognition.o ./src/plate_training_data.o ./src/safe_console.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+Finished building target: ov7725_lcd.elf
+ 
+Invoking: ARM v7 Print Size
+arm-none-eabi-size ov7725_lcd.elf  |tee "ov7725_lcd.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+ 546964	   2744	 223024	 772732	  bca7c	ov7725_lcd.elf
+Finished building: ov7725_lcd.elf.size
+ 
+16:38:17 **** Auto Build of configuration Debug for project ov7725_lcd ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+Building file: ../src/plate_recognition.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/plate_recognition.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../ov7725_lcd_bsp_new/ps7_cortexa9_0/include -MMD -MP -MF"src/plate_recognition.d" -MT"src/plate_recognition.o" -o "src/plate_recognition.o" "../src/plate_recognition.c"
+Finished building: ../src/plate_recognition.c
+ 
+Building target: ov7725_lcd.elf
+Invoking: ARM v7 gcc linker
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../ov7725_lcd_bsp_new/ps7_cortexa9_0/lib -o "ov7725_lcd.elf"  ./src/vdma_api/vdma_api.o  ./src/sccb/sccb_init.o  ./src/overlay/overlay.o  ./src/ov7725/ov7725_init.o  ./src/dynclk/dynclk.o  ./src/display_ctrl/display_ctrl.o  ./src/main.o ./src/plate_app_bridge.o ./src/plate_ocr.o ./src/plate_recognition.o ./src/plate_training_data.o ./src/safe_console.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+Finished building target: ov7725_lcd.elf
+ 
+Invoking: ARM v7 Print Size
+arm-none-eabi-size ov7725_lcd.elf  |tee "ov7725_lcd.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+ 546964	   2744	 223024	 772732	  bca7c	ov7725_lcd.elf
+Finished building: ov7725_lcd.elf.size
+ 
+16:38:23 **** Incremental Build of configuration Debug for project ov7725_lcd ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+make: Nothing to be done for 'main-build'.
+16:42:43 **** Auto Build of configuration Debug for project ov7725_lcd ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+Building file: ../src/plate_recognition.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/plate_recognition.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../ov7725_lcd_bsp_new/ps7_cortexa9_0/include -MMD -MP -MF"src/plate_recognition.d" -MT"src/plate_recognition.o" -o "src/plate_recognition.o" "../src/plate_recognition.c"
+Finished building: ../src/plate_recognition.c
+ 
+Building target: ov7725_lcd.elf
+Invoking: ARM v7 gcc linker
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../ov7725_lcd_bsp_new/ps7_cortexa9_0/lib -o "ov7725_lcd.elf"  ./src/vdma_api/vdma_api.o  ./src/sccb/sccb_init.o  ./src/overlay/overlay.o  ./src/ov7725/ov7725_init.o  ./src/dynclk/dynclk.o  ./src/display_ctrl/display_ctrl.o  ./src/main.o ./src/plate_app_bridge.o ./src/plate_ocr.o ./src/plate_recognition.o ./src/plate_training_data.o ./src/safe_console.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+Finished building target: ov7725_lcd.elf
+ 
+Invoking: ARM v7 Print Size
+arm-none-eabi-size ov7725_lcd.elf  |tee "ov7725_lcd.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+ 547028	   2744	 223024	 772796	  bcabc	ov7725_lcd.elf
+Finished building: ov7725_lcd.elf.size
+ 
+16:42:50 **** Incremental Build of configuration Debug for project ov7725_lcd ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+make: Nothing to be done for 'main-build'.

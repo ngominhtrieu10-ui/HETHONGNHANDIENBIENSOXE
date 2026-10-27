@@ -1,0 +1,76 @@
+#-----------------------------------------------------------
+# Vivado v2018.3 (64-bit)
+# SW Build 2405991 on Thu Dec  6 23:38:27 MST 2018
+# IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
+# Start of session at: Thu Oct 15 16:25:54 2026
+# Process ID: 592
+# Current directory: C:/Users/ngomi/Desktop/KLTN/22_ov7725_lcd_ROI_BUTTON_APP_FIXED_V3_UART_APP_FIX/22_ov7725_lcd_test/22_ov7725_lcd/ov7725_lcd
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent16808 C:\Users\ngomi\Desktop\KLTN\22_ov7725_lcd_ROI_BUTTON_APP_FIXED_V3_UART_APP_FIX\22_ov7725_lcd_test\22_ov7725_lcd\ov7725_lcd\ov7725_lcd.xpr
+# Log file: C:/Users/ngomi/Desktop/KLTN/22_ov7725_lcd_ROI_BUTTON_APP_FIXED_V3_UART_APP_FIX/22_ov7725_lcd_test/22_ov7725_lcd/ov7725_lcd/vivado.log
+# Journal file: C:/Users/ngomi/Desktop/KLTN/22_ov7725_lcd_ROI_BUTTON_APP_FIXED_V3_UART_APP_FIX/22_ov7725_lcd_test/22_ov7725_lcd/ov7725_lcd\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project C:/Users/ngomi/Desktop/KLTN/22_ov7725_lcd_ROI_BUTTON_APP_FIXED_V3_UART_APP_FIX/22_ov7725_lcd_test/22_ov7725_lcd/ov7725_lcd/ov7725_lcd.xpr
+INFO: [ProjectBase 1-489] The host OS only allows 260 characters in a normal path. The project is stored in a path with more than 80 characters. If you experience issues with IP, Block Designs, or files not being found, please consider moving the project to a location with a shorter path. Alternately consider using the OS subst command to map part of the path to a drive letter.
+Current project path is 'C:/Users/ngomi/Desktop/KLTN/22_ov7725_lcd_ROI_BUTTON_APP_FIXED_V3_UART_APP_FIX/22_ov7725_lcd_test/22_ov7725_lcd/ov7725_lcd'
+INFO: [Project 1-313] Project file moved from '/home/bienso/Videos/KLTN/22_ov7725_lcd_ROI_BUTTON_APP_FIXED_V3_UART_APP_FIXE/22_ov7725_lcd_test/22_ov7725_lcd/ov7725_lcd' since last save.
+Scanning sources...
+Finished scanning sources
+WARNING: [filemgmt 56-2] IP Repository Path: Could not find the directory 'C:/Users/ngomi/Downloads/TemplatesBienSo/hls_gaussian_blur', nor could it be found using path 'C:/home/bienso/Downloads/TemplatesBienSo/hls_gaussian_blur'.
+WARNING: [filemgmt 56-2] IP Repository Path: Could not find the directory 'C:/Users/ngomi/Downloads/TemplatesBienSo/hls_otsu_threshold', nor could it be found using path 'C:/home/bienso/Downloads/TemplatesBienSo/hls_otsu_threshold'.
+WARNING: [filemgmt 56-2] IP Repository Path: Could not find the directory 'C:/Users/ngomi/Downloads/TemplatesBienSo/hls_morphological_open', nor could it be found using path 'C:/home/bienso/Downloads/TemplatesBienSo/hls_morphological_open'.
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/Users/ngomi/Desktop/KLTN/22_ov7725_lcd_ROI_BUTTON_APP_FIXED_V3_UART_APP_FIX/22_ov7725_lcd_test/22_ov7725_lcd/ov7725_lcd/ip_repo/ov7725_data_1.0'.
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/Users/ngomi/Desktop/KLTN/22_ov7725_lcd_ROI_BUTTON_APP_FIXED_V3_UART_APP_FIX/22_ov7725_lcd_test/22_ov7725_lcd/ov7725_lcd/ip_repo/tft_lcd_1.0'.
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/Users/ngomi/Desktop/KLTN/22_ov7725_lcd_ROI_BUTTON_APP_FIXED_V3_UART_APP_FIX/22_ov7725_lcd_test/22_ov7725_lcd/ov7725_lcd/ip_repo/axi_dynclk_v1_0'.
+WARNING: [IP_Flow 19-2248] Failed to load user IP repository 'c:/Users/ngomi/Downloads/TemplatesBienSo/hls_gaussian_blur'; Can't find the specified path.
+If this directory should no longer be in your list of user repositories, go to the IP Settings dialog and remove it.
+WARNING: [IP_Flow 19-2248] Failed to load user IP repository 'c:/Users/ngomi/Downloads/TemplatesBienSo/hls_otsu_threshold'; Can't find the specified path.
+If this directory should no longer be in your list of user repositories, go to the IP Settings dialog and remove it.
+WARNING: [IP_Flow 19-2248] Failed to load user IP repository 'c:/Users/ngomi/Downloads/TemplatesBienSo/hls_morphological_open'; Can't find the specified path.
+If this directory should no longer be in your list of user repositories, go to the IP Settings dialog and remove it.
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2018.3/data/ip'.
+WARNING: [BD 41-1661] One or more IPs have been locked in the design 'zynq.bd'. Please run report_ip_status for more details and recommendations on how to fix this issue.
+List of locked IPs:
+zynq_gaussian_blur_3x3_0_0
+zynq_otsu_threshold_0_0
+zynq_morphological_open_0_0
+
+WARNING: [IP_Flow 19-2162] IP 'gaussian_blur_3x3_0' is locked:
+* IP definition 'gaussian_blur_3x3 (1.0)' for IP 'gaussian_blur_3x3_0' (customized with software release 2018.3) was not found in the IP Catalog.
+Please select 'Report IP Status' from the 'Tools/Report' menu or run Tcl command 'report_ip_status' for more information.
+open_project: Time (s): cpu = 00:00:27 ; elapsed = 00:00:16 . Memory (MB): peak = 772.660 ; gain = 168.664
+open_hw
+connect_hw_server
+INFO: [Labtools 27-2285] Connecting to hw_server url TCP:localhost:3121
+INFO: [Labtools 27-2222] Launching hw_server...
+INFO: [Labtools 27-2221] Launch Output:
+
+****** Xilinx hw_server v2018.3
+  **** Build date : Dec  7 2018-00:40:27
+    ** Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+
+
+open_hw_target
+INFO: [Labtoolstcl 44-466] Opening hw_target localhost:3121/xilinx_tcf/Digilent/210357A7D00EA
+open_hw_target: Time (s): cpu = 00:00:04 ; elapsed = 00:00:06 . Memory (MB): peak = 1810.641 ; gain = 829.113
+set_property PROGRAM.FILE {C:/Users/ngomi/Desktop/KLTN/22_ov7725_lcd_ROI_BUTTON_APP_FIXED_V3_UART_APP_FIX/22_ov7725_lcd_test/22_ov7725_lcd/ov7725_lcd/ov7725_lcd.runs/impl_1/zynq_wrapper.bit} [get_hw_devices xc7z020_1]
+current_hw_device [get_hw_devices xc7z020_1]
+refresh_hw_device -update_hw_probes false [lindex [get_hw_devices xc7z020_1] 0]
+INFO: [Labtools 27-1434] Device xc7z020 (JTAG device index = 1) is programmed with a design that has no supported debug core(s) in it.
+update_compile_order -fileset sources_1
+launch_sdk -workspace C:/Users/ngomi/Desktop/KLTN/22_ov7725_lcd_ROI_BUTTON_APP_FIXED_V3_UART_APP_FIX/22_ov7725_lcd_test/22_ov7725_lcd/ov7725_lcd/ov7725_lcd.sdk -hwspec C:/Users/ngomi/Desktop/KLTN/22_ov7725_lcd_ROI_BUTTON_APP_FIXED_V3_UART_APP_FIX/22_ov7725_lcd_test/22_ov7725_lcd/ov7725_lcd/ov7725_lcd.sdk/zynq_wrapper.hdf
+INFO: [Vivado 12-393] Launching SDK...
+INFO: [Vivado 12-417] Running xsdk -workspace C:/Users/ngomi/Desktop/KLTN/22_ov7725_lcd_ROI_BUTTON_APP_FIXED_V3_UART_APP_FIX/22_ov7725_lcd_test/22_ov7725_lcd/ov7725_lcd/ov7725_lcd.sdk -hwspec C:/Users/ngomi/Desktop/KLTN/22_ov7725_lcd_ROI_BUTTON_APP_FIXED_V3_UART_APP_FIX/22_ov7725_lcd_test/22_ov7725_lcd/ov7725_lcd/ov7725_lcd.sdk/zynq_wrapper.hdf
+INFO: [Vivado 12-3157] SDK launch initiated. Please check console for any further messages.
+launch_sdk -workspace C:/Users/ngomi/Desktop/KLTN/22_ov7725_lcd_ROI_BUTTON_APP_FIXED_V3_UART_APP_FIX/22_ov7725_lcd_test/22_ov7725_lcd/ov7725_lcd/ov7725_lcd.sdk -hwspec C:/Users/ngomi/Desktop/KLTN/22_ov7725_lcd_ROI_BUTTON_APP_FIXED_V3_UART_APP_FIX/22_ov7725_lcd_test/22_ov7725_lcd/ov7725_lcd/ov7725_lcd.sdk/zynq_wrapper.hdf
+INFO: [Vivado 12-393] Launching SDK...
+INFO: [Vivado 12-417] Running xsdk -workspace C:/Users/ngomi/Desktop/KLTN/22_ov7725_lcd_ROI_BUTTON_APP_FIXED_V3_UART_APP_FIX/22_ov7725_lcd_test/22_ov7725_lcd/ov7725_lcd/ov7725_lcd.sdk -hwspec C:/Users/ngomi/Desktop/KLTN/22_ov7725_lcd_ROI_BUTTON_APP_FIXED_V3_UART_APP_FIX/22_ov7725_lcd_test/22_ov7725_lcd/ov7725_lcd/ov7725_lcd.sdk/zynq_wrapper.hdf
+INFO: [Vivado 12-3157] SDK launch initiated. Please check console for any further messages.
+launch_sdk -workspace C:/Users/ngomi/Desktop/KLTN/22_ov7725_lcd_ROI_BUTTON_APP_FIXED_V3_UART_APP_FIX/22_ov7725_lcd_test/22_ov7725_lcd/ov7725_lcd/ov7725_lcd.sdk -hwspec C:/Users/ngomi/Desktop/KLTN/22_ov7725_lcd_ROI_BUTTON_APP_FIXED_V3_UART_APP_FIX/22_ov7725_lcd_test/22_ov7725_lcd/ov7725_lcd/ov7725_lcd.sdk/zynq_wrapper.hdf
+INFO: [Vivado 12-393] Launching SDK...
+INFO: [Vivado 12-417] Running xsdk -workspace C:/Users/ngomi/Desktop/KLTN/22_ov7725_lcd_ROI_BUTTON_APP_FIXED_V3_UART_APP_FIX/22_ov7725_lcd_test/22_ov7725_lcd/ov7725_lcd/ov7725_lcd.sdk -hwspec C:/Users/ngomi/Desktop/KLTN/22_ov7725_lcd_ROI_BUTTON_APP_FIXED_V3_UART_APP_FIX/22_ov7725_lcd_test/22_ov7725_lcd/ov7725_lcd/ov7725_lcd.sdk/zynq_wrapper.hdf
+INFO: [Vivado 12-3157] SDK launch initiated. Please check console for any further messages.
+ERROR: [Labtoolstcl 44-513] HW Target shutdown. Closing target: localhost:3121/xilinx_tcf/Digilent/210357A7D00EA
+exit
+INFO: [Common 17-206] Exiting Vivado at Thu Oct 15 16:39:17 2026...
